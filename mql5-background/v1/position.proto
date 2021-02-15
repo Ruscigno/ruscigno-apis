@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mql5-background.v1;
+
+import "google/protobuf/timestamp.proto";
+
+// PositionType: Position Type
+enum PositionType {
+	POSITION_TYPE_BUY = 1; //Buy
+	POSITION_TYPE_SELL = 2; //Sell
+}
+
+// Position: Execution of trade operations results in the opening of a position
+message Position {
+	int32 order_id = 1;
+	int32 account_id = 2;
+	int32 position_number = 3;
+	int32 ticket = 4;
+	string symbol = 5;
+	google.protobuf.Timestamp time = 6;
+	PositionType position_type = 7;
+	double volume = 8;
+	double price_open = 9;
+	double stop_loss = 10;
+	double take_profit = 11;
+	double price_current = 12;
+	double commission = 13;
+	double swap = 14;
+	double profit = 15;
+	int32 identifier = 16;
+	string comment = 17;
+  }

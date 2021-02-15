@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mql5-background.v1;
+
+import "google/protobuf/timestamp.proto";
+
+// DealType: Deal type
+enum DealType {
+	DEAL_TYPE_BUY = 1; //Buy
+	DEAL_TYPE_SELL = 2; //Sell
+	DEAL_TYPE_BALANCE = 3; //Balance
+	DEAL_TYPE_CREDIT = 4; //Credit
+	DEAL_TYPE_CHARGE = 5; //Additional charge
+	DEAL_TYPE_CORRECTION = 6; //Correction
+	DEAL_TYPE_BONUS = 7; //Bonus
+	DEAL_TYPE_COMMISSION = 8; //Additional commission
+	DEAL_TYPE_COMMISSION_DAILY = 9; //Daily commission
+	DEAL_TYPE_COMMISSION_MONTHLY = 10; //Monthly commission
+	DEAL_TYPE_COMMISSION_AGENT_DAILY = 11; //Daily agent commission
+	DEAL_TYPE_COMMISSION_AGENT_MONTHLY = 12; //Monthly agent commission
+	DEAL_TYPE_INTEREST = 13; //Interest rate
+	DEAL_TYPE_BUY_CANCELED = 14; //Canceled buy deal. 
+	DEAL_TYPE_SELL_CANCELED = 15; //Canceled sell deal.
+	DEAL_DIVIDEND = 16; //Dividend operations
+	DEAL_DIVIDEND_FRANKED = 17; //Franked (non-taxable) dividend operations
+	DEAL_TAX = 18; //Tax charges
+}
+
+// DealEntry: Deal entry - entry in, entry out, reverse
+enum DealEntry {
+	DEAL_ENTRY_IN = 1; //Entry in
+	DEAL_ENTRY_OUT = 2; //Entry out
+	DEAL_ENTRY_INOUT = 3; //Reverse
+	DEAL_ENTRY_OUT_BY = 4; //Close a position by an opposite one
+}
+
+// Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
+message Deal {
+    int32 order_id = 1;
+	int32 account_id = 2;
+	int32 deal_number = 3;
+	int32 ticket = 4;
+	int32 magic = 5;
+    int32 order = 6;
+	string symbol = 7;
+	google.protobuf.Timestamp time = 8;
+	DealType deal_type = 9;
+	DealEntry entry = 10;
+	int32 position_id = 11;
+	double volume = 12;
+    double price = 13;
+    double commission = 14;
+    double swap = 15;
+    double profit = 16;
+	string comment = 17;
+	string external_id = 18;
+  }
