@@ -1,2 +1,2 @@
-# ruscignoapis
-Single source of truth for my APIs
+# Ruscigno APIs
+Single source of truth for all my public APIs.
