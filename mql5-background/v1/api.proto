@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package conversation.v1;
+package mql5_background.v1;
 
 import "google/protobuf/empty.proto";
 import "mql5-background/v1/account.proto";
@@ -42,8 +42,8 @@ message CreatePositionRequest {
     Position position = 1;
 }
 
-// Service for Conversation Microservice
-service ConversationService {
+// Service for RuscignoMetatrader5Service Microservice
+service RuscignoMetatrader5Service {
   // Create a new account
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
   // Create a new deal

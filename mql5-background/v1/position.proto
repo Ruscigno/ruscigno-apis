@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package mql5-background.v1;
+package mql5_background.v1;
 
 import "google/protobuf/timestamp.proto";
 
