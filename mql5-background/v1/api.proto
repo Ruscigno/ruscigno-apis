@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package conversation.v1;
+
+import "google/protobuf/empty.proto";
+import "mql5-background/v1/account.proto";
+import "mql5-background/v1/order.proto";
+import "mql5-background/v1/deal.proto";
+import "mql5-background/v1/position.proto";
+
+
+message PagedRequestOptions {
+  // cursor can be passed to retrieve the next page of results keyed by the cursor
+  int32 cursor = 1;
+  // page_size specifies the number of items to return in the next page
+  int64 page_size = 2;
+}
+
+message PagedResponseMetadata {
+  // A cursor that can be provided to retrieve the next page of results
+  int32 next_cursor = 1;
+  // Whether or not more results exist
+  bool has_more = 2;
+}
+
+// *******************
+// Requests
+// *******************
+message CreateAccountRequest {
+    Account account = 1;
+}
+
+message CreateDealRequest {
+    Deal deal = 1;
+}
+
+message CreateOrderRequest {
+    Order order = 1;
+}
+
+message CreatePositionRequest {
+    Position position = 1;
+}
+
+// Service for Conversation Microservice
+service ConversationService {
+  // Create a new account
+  rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
+  // Create a new deal
+  rpc CreateDeal (CreateDealRequest) returns (google.protobuf.Empty);
+  // Create a new ordel
+  rpc CreateOrder (CreateOrderRequest) returns (google.protobuf.Empty);
+  // Create a new position
+  rpc CreatePosition (CreatePositionRequest) returns (google.protobuf.Empty);
+}
