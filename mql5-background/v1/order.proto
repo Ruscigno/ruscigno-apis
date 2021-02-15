@@ -6,44 +6,44 @@ import "google/protobuf/timestamp.proto";
 
 // OrderType: Order type
 enum OrderType {
-	ORDER_TYPE_BUY = 1; //Market Buy order
-	ORDER_TYPE_SELL = 2; //Market Sell order
-	ORDER_TYPE_BUY_LIMIT = 3; //Buy Limit pending order
-	ORDER_TYPE_SELL_LIMIT = 4; //Sell Limit pending order
-	ORDER_TYPE_BUY_STOP = 5; //Buy Stop pending order
-	ORDER_TYPE_SELL_STOP = 6; //Sell Stop pending order
-	ORDER_TYPE_BUY_STOP_LIMIT = 7; //Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
-	ORDER_TYPE_SELL_STOP_LIMIT = 8; //Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
-	ORDER_TYPE_CLOSE_BY = 9; //Order to close a position by an opposite one
+	ORDER_TYPE_BUY = 0; //Market Buy order
+	ORDER_TYPE_SELL = 1; //Market Sell order
+	ORDER_TYPE_BUY_LIMIT = 2; //Buy Limit pending order
+	ORDER_TYPE_SELL_LIMIT = 3; //Sell Limit pending order
+	ORDER_TYPE_BUY_STOP = 4; //Buy Stop pending order
+	ORDER_TYPE_SELL_STOP = 5; //Sell Stop pending order
+	ORDER_TYPE_BUY_STOP_LIMIT = 6; //Upon reaching the order price, a pending Buy Limit order is placed at the StopLimit price
+	ORDER_TYPE_SELL_STOP_LIMIT = 7; //Upon reaching the order price, a pending Sell Limit order is placed at the StopLimit price
+	ORDER_TYPE_CLOSE_BY = 8; //Order to close a position by an opposite one
 }
 
 // OrderType: Order state
 enum OrderState {
-	ORDER_STATE_STARTED = 1; //Order checked, but not yet accepted by broker
-	ORDER_STATE_PLACED = 2; //Order accepted
-	ORDER_STATE_CANCELED = 3; //Order canceled by client
-	ORDER_STATE_PARTIAL = 4; //Order partially executed
-	ORDER_STATE_FILLED = 5; //Order fully executed
-	ORDER_STATE_REJECTED = 6; //Order rejected
-	ORDER_STATE_EXPIRED = 7; //Order expired
-	ORDER_STATE_REQUEST_ADD = 8; //Order is being registered (placing to the trading system)
-	ORDER_STATE_REQUEST_MODIFY = 9; //Order is being modified (changing its parameters)
-	ORDER_STATE_REQUEST_CANCEL = 10; //Order is being deleted (deleting from the trading system)
+	ORDER_STATE_STARTED = 0; //Order checked, but not yet accepted by broker
+	ORDER_STATE_PLACED = 1; //Order accepted
+	ORDER_STATE_CANCELED = 2; //Order canceled by client
+	ORDER_STATE_PARTIAL = 3; //Order partially executed
+	ORDER_STATE_FILLED = 4; //Order fully executed
+	ORDER_STATE_REJECTED = 5; //Order rejected
+	ORDER_STATE_EXPIRED = 6; //Order expired
+	ORDER_STATE_REQUEST_ADD = 7; //Order is being registered (placing to the trading system)
+	ORDER_STATE_REQUEST_MODIFY = 8; //Order is being modified (changing its parameters)
+	ORDER_STATE_REQUEST_CANCEL = 9; //Order is being deleted (deleting from the trading system)
 }
 
 // OrderFillingType: Order filling type
 enum OrderFillingType {
-	ORDER_FILLING_FOK = 1; //This filling policy means that an order can be filled only in the specified amount.
-	ORDER_FILLING_IOC = 2; //This mode means that a trader agrees to execute a deal with the volume maximally available in the market within that indicated in the order.
-	ORDER_FILLING_RETURN = 3; //This policy is used only for market orders (ORDER_TYPE_BUY and ORDER_TYPE_SELL), limit and stop limit orders (ORDER_TYPE_BUY_LIMIT, ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT and ORDER_TYPE_SELL_STOP_LIMIT ) and only for the symbols with Market or Exchange execution.
+	ORDER_FILLING_FOK = 0; //This filling policy means that an order can be filled only in the specified amount.
+	ORDER_FILLING_IOC = 1; //This mode means that a trader agrees to execute a deal with the volume maximally available in the market within that indicated in the order.
+	ORDER_FILLING_RETURN = 2; //This policy is used only for market orders (ORDER_TYPE_BUY and ORDER_TYPE_SELL), limit and stop limit orders (ORDER_TYPE_BUY_LIMIT, ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT and ORDER_TYPE_SELL_STOP_LIMIT ) and only for the symbols with Market or Exchange execution.
 }
 
 // OrderTypeTime: Order lifetime
 enum OrderTypeTime {
-	ORDER_TIME_GTC = 1; //Good till cancel order
-	ORDER_TIME_DAY = 2; //Good till current trade day order
-	ORDER_TIME_SPECIFIED = 3; //Good till expired order
-	ORDER_TIME_SPECIFIED_DAY = 4; //The order will be effective till 23:59:59 of the specified day.
+	ORDER_TIME_GTC = 0; //Good till cancel order
+	ORDER_TIME_DAY = 1; //Good till current trade day order
+	ORDER_TIME_SPECIFIED = 2; //Good till expired order
+	ORDER_TIME_SPECIFIED_DAY = 3; //The order will be effective till 23:59:59 of the specified day.
 }
 
 // Order represents an trade order
