@@ -31,5 +31,5 @@ message Position {
 	string comment = 17;
 	google.protobuf.Timestamp created = 18;
 	google.protobuf.Timestamp modified = 19;
-	google.protobuf.Timestamp delted = 20;
+	google.protobuf.Timestamp deleted = 20;
 }

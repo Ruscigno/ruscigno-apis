@@ -73,5 +73,5 @@ message Order {
 	string external_id = 23;
 	google.protobuf.Timestamp created = 24;
 	google.protobuf.Timestamp modified = 25;
-	google.protobuf.Timestamp delted = 26;
+	google.protobuf.Timestamp deleted = 26;
 }
