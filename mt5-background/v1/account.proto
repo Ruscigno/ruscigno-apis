@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package mql5_background.v1;
 
+import "google/protobuf/timestamp.proto";
+
 // AccountTradeMode represents the modes an account could have
 enum AccountTradeMode {
   ACCOUNT_TRADE_MODE_DEMO = 0; //Demo account
