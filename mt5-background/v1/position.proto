@@ -29,4 +29,7 @@ message Position {
 	double profit = 15;
 	int32 identifier = 16;
 	string comment = 17;
-  }
+	google.protobuf.Timestamp created = 18;
+	google.protobuf.Timestamp modified = 19;
+	google.protobuf.Timestamp delted = 20;
+}

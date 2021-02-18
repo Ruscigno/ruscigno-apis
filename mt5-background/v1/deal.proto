@@ -54,4 +54,7 @@ message Deal {
     double profit = 16;
 	string comment = 17;
 	string external_id = 18;
-  }
+	google.protobuf.Timestamp created = 19;
+	google.protobuf.Timestamp modified = 20;
+	google.protobuf.Timestamp delted = 21;
+}

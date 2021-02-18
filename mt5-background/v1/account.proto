@@ -22,7 +22,7 @@ enum AccountMarginMode {
   ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 3; //Used for the exchange markets where individual positions are possible (hedging, multiple positions can exist for one symbol).
 }
 
-// AccountInfo: Account Properties
+// Account: Account Properties
 message Account {
   int32 account_id = 1;
   int32 login = 2;
@@ -46,4 +46,7 @@ message Account {
   double margin_level = 20;
   double margin_call = 21;
   double margin_stopout = 22;
+	google.protobuf.Timestamp created = 23;
+	google.protobuf.Timestamp modified = 24;
+	google.protobuf.Timestamp delted = 25;
 }
