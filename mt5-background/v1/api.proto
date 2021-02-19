@@ -48,7 +48,7 @@ service RuscignoMetatrader5Service {
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
   // Create a new deal
   rpc CreateDeal (CreateDealRequest) returns (google.protobuf.Empty);
-  // Create a new ordel
+  // Create a new order
   rpc CreateOrder (CreateOrderRequest) returns (google.protobuf.Empty);
   // Create a new position
   rpc CreatePosition (CreatePositionRequest) returns (google.protobuf.Empty);

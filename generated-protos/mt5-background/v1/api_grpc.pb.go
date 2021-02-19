@@ -23,7 +23,7 @@ type RuscignoMetatrader5ServiceClient interface {
 	CreateAccount(ctx context.Context, in *CreateAccountRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Create a new deal
 	CreateDeal(ctx context.Context, in *CreateDealRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	// Create a new ordel
+	// Create a new order
 	CreateOrder(ctx context.Context, in *CreateOrderRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Create a new position
 	CreatePosition(ctx context.Context, in *CreatePositionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -81,7 +81,7 @@ type RuscignoMetatrader5ServiceServer interface {
 	CreateAccount(context.Context, *CreateAccountRequest) (*emptypb.Empty, error)
 	// Create a new deal
 	CreateDeal(context.Context, *CreateDealRequest) (*emptypb.Empty, error)
-	// Create a new ordel
+	// Create a new order
 	CreateOrder(context.Context, *CreateOrderRequest) (*emptypb.Empty, error)
 	// Create a new position
 	CreatePosition(context.Context, *CreatePositionRequest) (*emptypb.Empty, error)
