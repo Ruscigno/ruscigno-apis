@@ -7,4 +7,4 @@ Single source of truth for all my public APIs.
 `export SRC_DIR="./mt5-background/v1"`
 
 2. generate protos
-`protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/deal.proto`
+`protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/*.proto --go-grpc_out=$DST_DIR`
