@@ -48,25 +48,25 @@ enum DealEntry {
 
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Deal {
-    int32 order_id = 1;
+  int32 deal_id = 1;
 	int32 account_id = 2;
 	int32 deal_number = 3;
 	int32 ticket = 4;
 	int32 magic = 5;
-    int32 order = 6;
+  int32 order = 6;
 	string symbol = 7;
 	google.protobuf.Timestamp time = 8;
 	DealType deal_type = 9;
 	DealEntry entry = 10;
 	int32 position_id = 11;
 	double volume = 12;
-    double price = 13;
-    double commission = 14;
-    double swap = 15;
-    double profit = 16;
+  double price = 13;
+  double commission = 14;
+  double swap = 15;
+  double profit = 16;
 	string comment = 17;
 	string external_id = 18;
 	google.protobuf.Timestamp created = 19;
-	google.protobuf.Timestamp modified = 20;
+	google.protobuf.Timestamp updated = 20;
 	google.protobuf.Timestamp deleted = 21;
 }

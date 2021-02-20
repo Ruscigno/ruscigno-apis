@@ -25,24 +25,23 @@ enum PositionType {
 
 // Position: Execution of trade operations results in the opening of a position
 message Position {
-	int32 order_id = 1;
+	int32 position_id = 1;
 	int32 account_id = 2;
-	int32 position_number = 3;
-	int32 ticket = 4;
-	string symbol = 5;
-	google.protobuf.Timestamp time = 6;
-	PositionType position_type = 7;
-	double volume = 8;
-	double price_open = 9;
-	double stop_loss = 10;
-	double take_profit = 11;
-	double price_current = 12;
-	double commission = 13;
-	double swap = 14;
-	double profit = 15;
-	int32 identifier = 16;
-	string comment = 17;
-	google.protobuf.Timestamp created = 18;
-	google.protobuf.Timestamp modified = 19;
-	google.protobuf.Timestamp deleted = 20;
+	int32 ticket = 3;
+	string symbol = 4;
+	google.protobuf.Timestamp time = 5;
+	PositionType position_type = 6;
+	double volume = 7;
+	double price_open = 8;
+	double stop_loss = 9;
+	double take_profit = 10;
+	double price_current = 11;
+	double commission = 12;
+	double swap = 13;
+	double profit = 14;
+	int32 identifier = 15;
+	string comment = 16;
+	google.protobuf.Timestamp created = 17;
+	google.protobuf.Timestamp updated = 18;
+	google.protobuf.Timestamp deleted = 19;
 }
