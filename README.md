@@ -7,6 +7,7 @@ Single source of truth for all my public APIs.
 2. export both variables
 
 `export DST_DIR="../ruscigno-gosdk/mt5-synchronizer/v1"`
+
 `export SRC_DIR="./mt5-synchronizer/v1"`
 
 3. generate the protos
