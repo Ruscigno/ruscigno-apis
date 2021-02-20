@@ -46,9 +46,20 @@ enum OrderTypeTime {
 	ORDER_TIME_SPECIFIED_DAY = 3; //The order will be effective till 23:59:59 of the specified day.
 }
 
+// OrderReason: The reason for order placing. An order can be placed by an MQL5 program, from a mobile application, as a result of StopOut, etc.
+enum OrderReason {
+	ORDER_REASON_CLIENT = 0; //The order was placed from a desktop terminal
+	ORDER_REASON_MOBILE = 1; //The order was placed from a mobile application
+	ORDER_REASON_WEB = 2; //The order was placed from a web platform
+	ORDER_REASON_EXPERT = 3; //The order was placed from an MQL5-program, i.e. by an Expert Advisor or a script
+	ORDER_REASON_SL = 4; //The order was placed as a result of Stop Loss activation
+	ORDER_REASON_TP = 5; //The order was placed as a result of Take Profit activation
+	ORDER_REASON_SO = 6; //The order was placed as a result of the Stop Out event
+}
+
 // Order represents an trade order
 message Order {
-    int32 order_id = 1;
+  int32 order_id = 1;
 	int32 account_id = 2;
 	int32 order_number = 3;
 	int32 ticket = 4;
@@ -74,4 +85,5 @@ message Order {
 	google.protobuf.Timestamp created = 24;
 	google.protobuf.Timestamp modified = 25;
 	google.protobuf.Timestamp deleted = 26;
+	OrderReason reason = 27;
 }
