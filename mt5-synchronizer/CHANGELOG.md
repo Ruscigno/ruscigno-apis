@@ -1,3 +1,5 @@
+## 0.7.0
+- could not use protobuf.Timestamp
 ## 0.6.0
 - removing order number from order
 ## 0.4.0
