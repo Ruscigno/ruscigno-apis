@@ -34,7 +34,7 @@ enum AccountStopoutMode {
 enum AccountMarginMode {
   ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0; //Used for the OTC markets to interpret positions in the "netting" mode (only one position can exist for one symbol). 
   ACCOUNT_MARGIN_MODE_EXCHANGE = 1; //Used for the exchange markets.
-  ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 3; //Used for the exchange markets where individual positions are possible (hedging, multiple positions can exist for one symbol).
+  ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2; //Used for the exchange markets where individual positions are possible (hedging, multiple positions can exist for one symbol).
 }
 
 // Account: Account Properties

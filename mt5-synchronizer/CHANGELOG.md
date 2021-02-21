@@ -1,3 +1,5 @@
+## 0.3.0
+- Wrong sequence
 ## 0.2.0
 - Change name from modified to updated
 ## 0.1.0
