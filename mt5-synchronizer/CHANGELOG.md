@@ -1,3 +1,5 @@
+## 0.4.0
+- remove login field as it is the same as account_id
 ## 0.3.0
 - Wrong sequence
 ## 0.2.0
