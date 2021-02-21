@@ -74,18 +74,18 @@ enum OrderReason {
 message Order {
   int32 order_id = 1;
 	int32 account_id = 2;
-	int32 order_number = 3;
-	int32 ticket = 4;
-	string symbol = 5;
-	google.protobuf.Timestamp time_setup = 6;
-	OrderType order_type = 7;
-	OrderState state = 8;
-	google.protobuf.Timestamp time_expiration = 9;
-	google.protobuf.Timestamp time_done = 10;
-	OrderFillingType type_filling = 11;
-	OrderTypeTime type_time = 12;
-	int32 magic = 13;
-	int32 position_id = 14;
+	int32 ticket = 3;
+	string symbol = 4;
+	google.protobuf.Timestamp time_setup = 5;
+	OrderType order_type = 6;
+	OrderState state = 7;
+	google.protobuf.Timestamp time_expiration = 8;
+	google.protobuf.Timestamp time_done = 9;
+	OrderFillingType type_filling = 10;
+	OrderTypeTime type_time = 11;
+	int32 magic = 12;
+	int32 position_id = 13;
+	OrderReason reason = 14;
 	double volume_initial = 15;
 	double volume_current = 16;
 	double price_open = 17;
@@ -98,5 +98,4 @@ message Order {
 	google.protobuf.Timestamp created = 24;
 	google.protobuf.Timestamp updated = 25;
 	google.protobuf.Timestamp deleted = 26;
-	OrderReason reason = 27;
 }
