@@ -55,7 +55,7 @@ message Deal {
 	int32 magic = 4;
   int32 order = 5;
 	string symbol = 6;
-	int32 time = 7; 
+	int64 time = 7; 
 	DealType deal_type = 8;
 	DealEntry entry = 9;
 	int32 position_id = 10;

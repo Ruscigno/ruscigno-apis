@@ -1,3 +1,5 @@
+## 0.8.0
+- timestamp are actually a int64
 ## 0.7.0
 - could not use protobuf.Timestamp
 ## 0.6.0

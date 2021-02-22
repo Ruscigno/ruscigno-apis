@@ -76,11 +76,11 @@ message Order {
 	int32 account_id = 2;
 	int32 ticket = 3;
 	string symbol = 4;
-	int32 time_setup = 5;
+	int64 time_setup = 5;
 	OrderType order_type = 6;
 	OrderState state = 7;
-	int32 time_expiration = 8;
-	int32 time_done = 9;
+	int64 time_expiration = 8;
+	int64 time_done = 9;
 	OrderFillingType type_filling = 10;
 	OrderTypeTime type_time = 11;
 	int32 magic = 12;

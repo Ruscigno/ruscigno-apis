@@ -29,7 +29,7 @@ message Position {
 	int32 account_id = 2;
 	int32 ticket = 3;
 	string symbol = 4;
-	int32 time = 5;
+	int64 time = 5;
 	PositionType position_type = 6;
 	double volume = 7;
 	double price_open = 8;
