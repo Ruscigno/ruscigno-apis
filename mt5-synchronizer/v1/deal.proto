@@ -52,7 +52,7 @@ message Deal {
   int32 deal_id = 1;
 	int32 account_id = 2;
 	int32 ticket = 3;
-	int32 magic = 4;
+	int64 magic = 4;
   int32 order = 5;
 	string symbol = 6;
 	int64 time = 7; 
