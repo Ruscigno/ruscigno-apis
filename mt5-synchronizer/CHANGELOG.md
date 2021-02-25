@@ -1,4 +1,4 @@
-## 0.9.0
+## 0.10.0
 - fix: magic could be a int64 number
 ## 0.8.0
 - timestamp are actually a int64
