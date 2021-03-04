@@ -1,3 +1,7 @@
+## 0.12.0
+- create entities in bulk
+## 0.11.0
+- licese
 ## 0.10.0
 - fix: magic could be a int64 number
 ## 0.8.0

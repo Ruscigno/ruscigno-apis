@@ -55,6 +55,18 @@ message CreatePositionRequest {
     Position position = 1;
 }
 
+message CreateMultipleDealsRequest {
+    repeated Deal deal = 1;
+}
+
+message CreateMultipleOrdersRequest {
+    repeated Order order = 1;
+}
+
+message CreateMultiplePositionsRequest {
+    repeated Position position = 1;
+}
+
 // Service for RuscignoMetatrader5Service Microservice
 service RuscignoMetatrader5Service {
   // Create a new account
@@ -65,4 +77,10 @@ service RuscignoMetatrader5Service {
   rpc CreateOrder (CreateOrderRequest) returns (google.protobuf.Empty);
   // Create a new position
   rpc CreatePosition (CreatePositionRequest) returns (google.protobuf.Empty);
+  // Create a multiple new deals
+  rpc CreateMultipleDeals (CreateMultipleDealsRequest) returns (google.protobuf.Empty);
+  // Create a new multiple orders
+  rpc CreateMultipleOrders (CreateMultipleOrdersRequest) returns (google.protobuf.Empty);
+  // Create a new multiple positions
+  rpc CreateMultiplePositions (CreateMultiplePositionsRequest) returns (google.protobuf.Empty);
 }
