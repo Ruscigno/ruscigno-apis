@@ -20,6 +20,7 @@ import "account.proto";
 import "order.proto";
 import "deal.proto";
 import "position.proto";
+import "tradetransaction.proto";
 
 
 message PagedRequestOptions {
@@ -67,20 +68,29 @@ message CreateMultiplePositionsRequest {
     repeated Position position = 1;
 }
 
+message CreateTradeTransactionRequest {
+    int32 account_id = 1;
+    TradeTransaction trade_transaction = 2;
+    TradeRequest trade_request = 3;
+    TradeResult trade_result = 4;
+}
+
 // Service for RuscignoMetatrader5Service Microservice
 service RuscignoMetatrader5Service {
-  // Create a new account
+  // Creates a new account
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
-  // Create a new deal
+  // Creates a new deal
   rpc CreateDeal (CreateDealRequest) returns (google.protobuf.Empty);
-  // Create a new order
+  // Creates a new order
   rpc CreateOrder (CreateOrderRequest) returns (google.protobuf.Empty);
-  // Create a new position
+  // Creates a new position
   rpc CreatePosition (CreatePositionRequest) returns (google.protobuf.Empty);
-  // Create a multiple new deals
+  // Creates a multiple new deals
   rpc CreateMultipleDeals (CreateMultipleDealsRequest) returns (google.protobuf.Empty);
-  // Create a new multiple orders
+  // Creates a new multiple orders
   rpc CreateMultipleOrders (CreateMultipleOrdersRequest) returns (google.protobuf.Empty);
-  // Create a new multiple positions
+  // Creates a new multiple positions
   rpc CreateMultiplePositions (CreateMultiplePositionsRequest) returns (google.protobuf.Empty);
+  // Creates a trade transation
+  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
 }

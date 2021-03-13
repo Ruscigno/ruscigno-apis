@@ -1,3 +1,6 @@
+## v0.13.0
+- feat: trade transation
+  
 ## 0.12.0
 - create entities in bulk
 ## 0.11.0
