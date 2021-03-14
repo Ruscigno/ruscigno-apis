@@ -1,3 +1,6 @@
+## v0.13.2
+- fix: typo on TradeTransactionType
+  
 ## v0.13.1
 - feat: repeated requests 
   
