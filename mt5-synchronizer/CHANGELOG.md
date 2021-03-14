@@ -1,3 +1,6 @@
+## v0.13.8
+- feat: naming improvements
+
 ## v0.13.7
 - feat: fix name on repeated fields
   

@@ -48,8 +48,8 @@ enum TradeTransactionType {
 // TradeTransaction: Structure of a Trade Transaction
 message TradeTransaction {
    uint64                    transaction_id    = 1; // Trade Transaction ID
-   uint64                    deal              = 2;  // Deal ticket
-   uint64                    order             = 3;  // Order ticket
+   uint64                    deal_id           = 2;  // Deal ticket
+   uint64                    order_id          = 3;  // Order ticket
    string                    symbol            = 4;  // Trade symbol name
    TradeTransactionType      trade_type        = 5;  // Trade transaction type
    OrderType                 order_type        = 6;  // Order type
@@ -74,7 +74,7 @@ message TradeRequest {
    uint64                    request_id        = 1;  // Request ID
    TradeRequestActions       action            = 2;  // Trade operation type
    uint64                    magic             = 3;  // Expert Advisor ID (magic number)
-   uint64                    order             = 4;  // Order ticket
+   uint64                    order_id          = 4;  // Order ticket
    string                    symbol            = 5;  // Trade symbol
    double                    volume            = 6;  // Requested volume for a deal in lots
    double                    price             = 7;  // Price
@@ -98,8 +98,8 @@ message TradeRequest {
 message TradeResult {
    uint64                    result_id        = 1;  // Result ID
    uint32                    retcode          = 2;  // Operation return code
-   uint64                    deal             = 3;  // Deal ticket, if it is performed
-   uint64                    order            = 4;  // Order ticket, if it is placed
+   uint64                    deal_id          = 3;  // Deal ticket, if it is performed
+   uint64                    order_id         = 4;  // Order ticket, if it is placed
    double                    volume           = 5;  // Deal volume, confirmed by broker
    double                    price            = 6;  // Deal price, confirmed by broker
    double                    bid              = 7;  // Current Bid price
