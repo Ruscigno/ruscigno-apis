@@ -45,15 +45,15 @@ message CreateAccountRequest {
 }
 
 message CreateDealsRequest {
-    repeated Deals deal = 1;
+    repeated Deal deals = 1;
 }
 
 message CreateOrdersRequest {
-    repeated Orders order = 1;
+    repeated Order orders = 1;
 }
 
 message CreatePositionsRequest {
-    repeated Positions position = 1;
+    repeated Position positions = 1;
 }
 
 message CreateTradeTransactionRequest {
