@@ -56,7 +56,7 @@ message TradeTransaction {
    OrderState                order_state       = 7;  // Order state
    DealType                  deal_type         = 8;  // Deal type
    OrderTypeTime             time_type         = 9;  // Order type by action period
-   google.protobuf.Timestamp time_expiration   = 10;  // Order expiration time
+   int64                     expiration        = 10; // Order expiration time
    double                    price             = 11; // Price 
    double                    price_trigger     = 12; // Stop limit order activation price
    double                    price_stop_loss   = 13; // Stop Loss level
@@ -64,6 +64,9 @@ message TradeTransaction {
    double                    volume            = 15; // Volume in lots
    uint64                    position          = 16; // Position ticket
    uint64                    position_by       = 17; // Ticket of an opposite position
+	google.protobuf.Timestamp created           = 18;
+	google.protobuf.Timestamp updated           = 19;
+	google.protobuf.Timestamp deleted           = 20;
   };
 
 // TradeRequest: The Structure of a Trade Request 
@@ -82,23 +85,29 @@ message TradeRequest {
    OrderType                 order_type   = 12; // Order type
    OrderFillingType          type_filling = 13; // Order execution type
    OrderTypeTime             type_time    = 14; // Order expiration type
-   google.protobuf.Timestamp expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+   int64                     expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
    string                    comment      = 16; // Order comment
    uint64                    position     = 17; // Position ticket
    uint64                    position_by  = 18; // The ticket of an opposite position
+	google.protobuf.Timestamp created      = 19;
+	google.protobuf.Timestamp updated      = 20;
+	google.protobuf.Timestamp deleted      = 21;   
 }
 
 // TradeResult: The Structure of a Trade Result 
 message TradeResult {
-   uint64 result_id        = 1;  // Result ID
-   uint32 retcode          = 2;  // Operation return code
-   uint64 deal             = 3;  // Deal ticket, if it is performed
-   uint64 order            = 4;  // Order ticket, if it is placed
-   double volume           = 5;  // Deal volume, confirmed by broker
-   double price            = 6;  // Deal price, confirmed by broker
-   double bid              = 7;  // Current Bid price
-   double ask              = 8;  // Current Ask price
-   string comment          = 9;  // Broker comment to operation (by default it is filled by description of trade server return code)
-   uint32 request_id       = 10;  // Request ID set by the terminal during the dispatch 
-   uint32 retcode_external = 11; // Return code of an external trading system
+   uint64                    result_id        = 1;  // Result ID
+   uint32                    retcode          = 2;  // Operation return code
+   uint64                    deal             = 3;  // Deal ticket, if it is performed
+   uint64                    order            = 4;  // Order ticket, if it is placed
+   double                    volume           = 5;  // Deal volume, confirmed by broker
+   double                    price            = 6;  // Deal price, confirmed by broker
+   double                    bid              = 7;  // Current Bid price
+   double                    ask              = 8;  // Current Ask price
+   string                    comment          = 9;  // Broker comment to operation (by default it is filled by description of trade server return code)
+   uint32                    request_id       = 10;  // Request ID set by the terminal during the dispatch 
+   uint32                    retcode_external = 11; // Return code of an external trading system
+	google.protobuf.Timestamp created          = 12;
+	google.protobuf.Timestamp updated          = 13;
+	google.protobuf.Timestamp deleted          = 14;
 }
