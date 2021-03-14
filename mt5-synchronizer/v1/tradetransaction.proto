@@ -47,55 +47,58 @@ enum TradeTransactionType {
 
 // TradeTransaction: Structure of a Trade Transaction
 message TradeTransaction {
-   uint64                    deal              = 1;  // Deal ticket
-   uint64                    order             = 2;  // Order ticket
-   string                    symbol            = 3;  // Trade symbol name
-   TradeTransactionType      trade_type        = 4;  // Trade transaction type
-   OrderType                 order_type        = 5;  // Order type
-   OrderState                order_state       = 6;  // Order state
-   DealType                  deal_type         = 7;  // Deal type
-   OrderTypeTime             time_type         = 8;  // Order type by action period
-   google.protobuf.Timestamp time_expiration   = 9;  // Order expiration time
-   double                    price             = 10; // Price 
-   double                    price_trigger     = 11; // Stop limit order activation price
-   double                    price_stop_loss   = 12; // Stop Loss level
-   double                    price_take_profit = 13; // Take Profit level
-   double                    volume            = 14; // Volume in lots
-   uint64                    position          = 15; // Position ticket
-   uint64                    position_by       = 16; // Ticket of an opposite position
+   uint64                    transaction_id    = 1; // Trade Transaction ID
+   uint64                    deal              = 2;  // Deal ticket
+   uint64                    order             = 3;  // Order ticket
+   string                    symbol            = 4;  // Trade symbol name
+   TradeTransactionType      trade_type        = 5;  // Trade transaction type
+   OrderType                 order_type        = 6;  // Order type
+   OrderState                order_state       = 7;  // Order state
+   DealType                  deal_type         = 8;  // Deal type
+   OrderTypeTime             time_type         = 9;  // Order type by action period
+   google.protobuf.Timestamp time_expiration   = 10;  // Order expiration time
+   double                    price             = 11; // Price 
+   double                    price_trigger     = 12; // Stop limit order activation price
+   double                    price_stop_loss   = 13; // Stop Loss level
+   double                    price_take_profit = 14; // Take Profit level
+   double                    volume            = 15; // Volume in lots
+   uint64                    position          = 16; // Position ticket
+   uint64                    position_by       = 17; // Ticket of an opposite position
   };
 
-// TradeRequest:The Structure of a Trade Request Result 
+// TradeRequest: The Structure of a Trade Request 
 message TradeRequest {
-   TradeResult               action       = 1;  // Trade operation type
-   uint64                    magic        = 2;  // Expert Advisor ID (magic number)
-   uint64                    order        = 3;  // Order ticket
-   string                    symbol       = 4;  // Trade symbol
-   double                    volume       = 5;  // Requested volume for a deal in lots
-   double                    price        = 6;  // Price
-   double                    stoplimit    = 7;  // StopLimit level of the order
-   double                    stop_loss    = 8;  // Stop Loss level of the order
-   double                    take_profit  = 9;  // Take Profit level of the order
-   uint64                    deviation    = 10; // Maximal possible deviation from the requested price
-   OrderType                 order_type   = 11; // Order type
-   OrderFillingType          type_filling = 12; // Order execution type
-   OrderTypeTime             type_time    = 13; // Order expiration type
-   google.protobuf.Timestamp expiration   = 14; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
-   string                    comment      = 15; // Order comment
-   uint64                    position     = 16; // Position ticket
-   uint64                    position_by  = 17; // The ticket of an opposite position
+   uint64                    request_id   = 1;  // Request ID
+   TradeResult               action       = 2;  // Trade operation type
+   uint64                    magic        = 3;  // Expert Advisor ID (magic number)
+   uint64                    order        = 4;  // Order ticket
+   string                    symbol       = 5;  // Trade symbol
+   double                    volume       = 6;  // Requested volume for a deal in lots
+   double                    price        = 7;  // Price
+   double                    stoplimit    = 8;  // StopLimit level of the order
+   double                    stop_loss    = 9;  // Stop Loss level of the order
+   double                    take_profit  = 10;  // Take Profit level of the order
+   uint64                    deviation    = 11; // Maximal possible deviation from the requested price
+   OrderType                 order_type   = 12; // Order type
+   OrderFillingType          type_filling = 13; // Order execution type
+   OrderTypeTime             type_time    = 14; // Order expiration type
+   google.protobuf.Timestamp expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+   string                    comment      = 16; // Order comment
+   uint64                    position     = 17; // Position ticket
+   uint64                    position_by  = 18; // The ticket of an opposite position
 }
 
-// Position: Execution of trade operations results in the opening of a position
+// TradeResult: The Structure of a Trade Result 
 message TradeResult {
-   uint32 retcode          = 1;  // Operation return code
-   uint64 deal             = 2;  // Deal ticket, if it is performed
-   uint64 order            = 3;  // Order ticket, if it is placed
-   double volume           = 4;  // Deal volume, confirmed by broker
-   double price            = 5;  // Deal price, confirmed by broker
-   double bid              = 6;  // Current Bid price
-   double ask              = 7;  // Current Ask price
-   string comment          = 8;  // Broker comment to operation (by default it is filled by description of trade server return code)
-   uint32 request_id       = 9;  // Request ID set by the terminal during the dispatch 
-   uint32 retcode_external = 10; // Return code of an external trading system
+   uint64 result_id        = 1;  // Result ID
+   uint32 retcode          = 2;  // Operation return code
+   uint64 deal             = 3;  // Deal ticket, if it is performed
+   uint64 order            = 4;  // Order ticket, if it is placed
+   double volume           = 5;  // Deal volume, confirmed by broker
+   double price            = 6;  // Deal price, confirmed by broker
+   double bid              = 7;  // Current Bid price
+   double ask              = 8;  // Current Ask price
+   string comment          = 9;  // Broker comment to operation (by default it is filled by description of trade server return code)
+   uint32 request_id       = 10;  // Request ID set by the terminal during the dispatch 
+   uint32 retcode_external = 11; // Return code of an external trading system
 }
