@@ -50,7 +50,7 @@ message TradeTransaction {
    uint64                    deal            = 1;  // Deal ticket
    uint64                    order           = 2;  // Order ticket
    string                    symbol          = 3;  // Trade symbol name
-   TradeTransactionType      type            = 4;  // Trade transaction type
+   TradeTransactionType      trade_type      = 4;  // Trade transaction type
    OrderType                 order_type      = 5;  // Order type
    OrderState                order_state     = 6;  // Order state
    DealType                  deal_type       = 7;  // Deal type

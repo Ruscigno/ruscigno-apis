@@ -49,16 +49,16 @@ enum DealEntry {
 
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Deal {
-	int32 deal_id = 1;
-	int32 account_id = 2;
-	int32 ticket = 3;
+	uint64 deal_id = 1;
+	uint64 account_id = 2;
+	uint64 ticket = 3;
 	int64 magic = 4;
-	int32 order = 5;
+	uint64 order = 5;
 	string symbol = 6;
 	int64 time = 7; 
 	DealType deal_type = 8;
 	DealEntry entry = 9;
-	int32 position_id = 10;
+	uint64 position_id = 10;
 	double volume = 11;
 	double price = 12;
 	double commission = 13;

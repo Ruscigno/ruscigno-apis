@@ -39,14 +39,14 @@ enum AccountMarginMode {
 
 // Account: Account Properties
 message Account {
-  int32 account_id = 1;
+  uint64 account_id = 1;
   AccountTradeMode trade_mode = 2;
-  int32 leverage = 3;
+  uint64 leverage = 3;
   AccountMarginMode margin_mode = 4;
   AccountStopoutMode stopout_mode = 5;
   bool trade_allowed = 6;
   bool trade_expert = 7;
-  int32 limit_orders = 8;
+  uint64 limit_orders = 8;
   string name = 9;
   string server = 10;
   string currency = 11;

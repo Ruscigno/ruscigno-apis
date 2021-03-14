@@ -1,3 +1,7 @@
+## v0.13.3
+- fix: cannot use type, changing to trade_type
+- feat: changing to int64 as it could be as big as it
+  
 ## v0.13.2
 - fix: typo on TradeTransactionType
   
