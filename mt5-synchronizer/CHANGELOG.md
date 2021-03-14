@@ -1,3 +1,6 @@
+## v0.13.4
+- fix: cannot use type, changing to trade_type 2
+  
 ## v0.13.3
 - fix: cannot use type, changing to trade_type
 - feat: changing to int64 as it could be as big as it
