@@ -1,3 +1,6 @@
+## v0.13.1
+- feat: repeated requests 
+  
 ## v0.13.0
 - feat: trade transation
   

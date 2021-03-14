@@ -44,27 +44,15 @@ message CreateAccountRequest {
     Account account = 1;
 }
 
-message CreateDealRequest {
-    Deal deal = 1;
-}
-
-message CreateOrderRequest {
-    Order order = 1;
-}
-
-message CreatePositionRequest {
-    Position position = 1;
-}
-
-message CreateMultipleDealsRequest {
+message CreateDealsRequest {
     repeated Deal deal = 1;
 }
 
-message CreateMultipleOrdersRequest {
+message CreateOrdersRequest {
     repeated Order order = 1;
 }
 
-message CreateMultiplePositionsRequest {
+message CreatePositionsRequest {
     repeated Position position = 1;
 }
 
@@ -80,17 +68,11 @@ service RuscignoMetatrader5Service {
   // Creates a new account
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
   // Creates a new deal
-  rpc CreateDeal (CreateDealRequest) returns (google.protobuf.Empty);
+  rpc CreateDeals (CreateDealsRequest) returns (google.protobuf.Empty);
   // Creates a new order
-  rpc CreateOrder (CreateOrderRequest) returns (google.protobuf.Empty);
+  rpc CreateOrders (CreateOrdersRequest) returns (google.protobuf.Empty);
   // Creates a new position
-  rpc CreatePosition (CreatePositionRequest) returns (google.protobuf.Empty);
-  // Creates a multiple new deals
-  rpc CreateMultipleDeals (CreateMultipleDealsRequest) returns (google.protobuf.Empty);
-  // Creates a new multiple orders
-  rpc CreateMultipleOrders (CreateMultipleOrdersRequest) returns (google.protobuf.Empty);
-  // Creates a new multiple positions
-  rpc CreateMultiplePositions (CreateMultiplePositionsRequest) returns (google.protobuf.Empty);
+  rpc CreatePositions (CreatePositionsRequest) returns (google.protobuf.Empty);
   // Creates a trade transation
   rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
 }
