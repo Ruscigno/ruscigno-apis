@@ -47,22 +47,22 @@ enum TradeTransactionType {
 
 // TradeTransaction: Structure of a Trade Transaction
 message TradeTransaction {
-   uint64                    deal            = 1;  // Deal ticket
-   uint64                    order           = 2;  // Order ticket
-   string                    symbol          = 3;  // Trade symbol name
-   TradeTransactionType      trade_type      = 4;  // Trade transaction type
-   OrderType                 order_type      = 5;  // Order type
-   OrderState                order_state     = 6;  // Order state
-   DealType                  deal_type       = 7;  // Deal type
-   OrderTypeTime             time_type       = 8;  // Order type by action period
-   google.protobuf.Timestamp time_expiration = 9;  // Order expiration time
-   double                    price           = 10; // Price 
-   double                    price_trigger   = 11; // Stop limit order activation price
-   double                    price_sl        = 12; // Stop Loss level
-   double                    price_tp        = 13; // Take Profit level
-   double                    volume          = 14; // Volume in lots
-   uint64                    position        = 15; // Position ticket
-   uint64                    position_by     = 16; // Ticket of an opposite position
+   uint64                    deal              = 1;  // Deal ticket
+   uint64                    order             = 2;  // Order ticket
+   string                    symbol            = 3;  // Trade symbol name
+   TradeTransactionType      trade_type        = 4;  // Trade transaction type
+   OrderType                 order_type        = 5;  // Order type
+   OrderState                order_state       = 6;  // Order state
+   DealType                  deal_type         = 7;  // Deal type
+   OrderTypeTime             time_type         = 8;  // Order type by action period
+   google.protobuf.Timestamp time_expiration   = 9;  // Order expiration time
+   double                    price             = 10; // Price 
+   double                    price_trigger     = 11; // Stop limit order activation price
+   double                    price_stop_loss   = 12; // Stop Loss level
+   double                    price_take_profit = 13; // Take Profit level
+   double                    volume            = 14; // Volume in lots
+   uint64                    position          = 15; // Position ticket
+   uint64                    position_by       = 16; // Ticket of an opposite position
   };
 
 // TradeRequest:The Structure of a Trade Request Result 
@@ -74,8 +74,8 @@ message TradeRequest {
    double                    volume       = 5;  // Requested volume for a deal in lots
    double                    price        = 6;  // Price
    double                    stoplimit    = 7;  // StopLimit level of the order
-   double                    sl           = 8;  // Stop Loss level of the order
-   double                    tp           = 9;  // Take Profit level of the order
+   double                    stop_loss    = 8;  // Stop Loss level of the order
+   double                    take_profit  = 9;  // Take Profit level of the order
    uint64                    deviation    = 10; // Maximal possible deviation from the requested price
    OrderType                 type         = 11; // Order type
    OrderFillingType          type_filling = 12; // Order execution type
