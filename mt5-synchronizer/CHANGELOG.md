@@ -1,4 +1,7 @@
 ## v0.13.6
+- fix: TradeRequestActions
+
+## v0.13.6
 - fix: expiration should be int64
   
 ## v0.13.5

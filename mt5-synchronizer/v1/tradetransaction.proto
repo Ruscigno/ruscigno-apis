@@ -56,7 +56,7 @@ message TradeTransaction {
    OrderState                order_state       = 7;  // Order state
    DealType                  deal_type         = 8;  // Deal type
    OrderTypeTime             time_type         = 9;  // Order type by action period
-   int64                     expiration        = 10; // Order expiration time
+   int64                     time_expiration   = 10; // Order expiration time
    double                    price             = 11; // Price 
    double                    price_trigger     = 12; // Stop limit order activation price
    double                    price_stop_loss   = 13; // Stop Loss level
@@ -67,31 +67,31 @@ message TradeTransaction {
 	google.protobuf.Timestamp created           = 18;
 	google.protobuf.Timestamp updated           = 19;
 	google.protobuf.Timestamp deleted           = 20;
-  };
+}
 
 // TradeRequest: The Structure of a Trade Request 
 message TradeRequest {
-   uint64                    request_id   = 1;  // Request ID
-   TradeResult               action       = 2;  // Trade operation type
-   uint64                    magic        = 3;  // Expert Advisor ID (magic number)
-   uint64                    order        = 4;  // Order ticket
-   string                    symbol       = 5;  // Trade symbol
-   double                    volume       = 6;  // Requested volume for a deal in lots
-   double                    price        = 7;  // Price
-   double                    stoplimit    = 8;  // StopLimit level of the order
-   double                    stop_loss    = 9;  // Stop Loss level of the order
-   double                    take_profit  = 10;  // Take Profit level of the order
-   uint64                    deviation    = 11; // Maximal possible deviation from the requested price
-   OrderType                 order_type   = 12; // Order type
-   OrderFillingType          type_filling = 13; // Order execution type
-   OrderTypeTime             type_time    = 14; // Order expiration type
-   int64                     expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
-   string                    comment      = 16; // Order comment
-   uint64                    position     = 17; // Position ticket
-   uint64                    position_by  = 18; // The ticket of an opposite position
-	google.protobuf.Timestamp created      = 19;
-	google.protobuf.Timestamp updated      = 20;
-	google.protobuf.Timestamp deleted      = 21;   
+   uint64                    request_id        = 1;  // Request ID
+   TradeRequestActions       action            = 2;  // Trade operation type
+   uint64                    magic             = 3;  // Expert Advisor ID (magic number)
+   uint64                    order             = 4;  // Order ticket
+   string                    symbol            = 5;  // Trade symbol
+   double                    volume            = 6;  // Requested volume for a deal in lots
+   double                    price             = 7;  // Price
+   double                    stoplimit         = 8;  // StopLimit level of the order
+   double                    stop_loss         = 9;  // Stop Loss level of the order
+   double                    take_profit       = 10;  // Take Profit level of the order
+   uint64                    deviation         = 11; // Maximal possible deviation from the requested price
+   OrderType                 order_type        = 12; // Order type
+   OrderFillingType          type_filling      = 13; // Order execution type
+   OrderTypeTime             type_time         = 14; // Order expiration type
+   int64                     time_expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+   string                    comment           = 16; // Order comment
+   uint64                    position          = 17; // Position ticket
+   uint64                    position_by       = 18; // The ticket of an opposite position
+	google.protobuf.Timestamp created           = 19;
+	google.protobuf.Timestamp updated           = 20;
+	google.protobuf.Timestamp deleted           = 21;   
 }
 
 // TradeResult: The Structure of a Trade Result 
