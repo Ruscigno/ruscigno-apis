@@ -1,3 +1,6 @@
+## v0.13.7
+- feat: fix name on repeated fields
+  
 ## v0.13.6
 - fix: TradeRequestActions
 
