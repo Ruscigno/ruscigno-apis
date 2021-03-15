@@ -25,9 +25,9 @@ enum PositionType {
 
 // Position: Execution of trade operations results in the opening of a position
 message Position {
-	uint64                    position_id   = 1;
-	uint64                    account_id    = 2;
-	uint64                    ticket        = 3;
+	int64                     position_id   = 1;
+	int64                     account_id    = 2;
+	int64                     ticket        = 3;
 	string                    symbol        = 4;
 	int64                     time          = 5;
 	PositionType              position_type = 6;
@@ -39,7 +39,7 @@ message Position {
 	double                    commission    = 12;
 	double                    swap          = 13;
 	double                    profit        = 14;
-	uint64                    identifier    = 15;
+	int64                     identifier    = 15;
 	string                    comment       = 16;
 	google.protobuf.Timestamp created       = 17;
 	google.protobuf.Timestamp updated       = 18;
