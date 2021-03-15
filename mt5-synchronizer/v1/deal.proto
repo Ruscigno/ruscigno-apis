@@ -53,7 +53,7 @@ message Deal {
 	int64                     account_id  = 2;
 	int64                     ticket      = 3;
 	int64                     magic       = 4;
-	int64                     order       = 5;
+	int64                     order_id    = 5;
 	string                    symbol      = 6;
 	int64                     time        = 7; 
 	DealType                  deal_type   = 8;
