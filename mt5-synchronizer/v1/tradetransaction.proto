@@ -64,9 +64,9 @@ message TradeTransaction {
    double                    volume            = 15; // Volume in lots
    int64                     position          = 16; // Position ticket
    int64                     position_by       = 17; // Ticket of an opposite position
-	google.protobuf.Timestamp created           = 18;
-	google.protobuf.Timestamp updated           = 19;
-	google.protobuf.Timestamp deleted           = 20;
+   google.protobuf.Timestamp created           = 18;
+   google.protobuf.Timestamp updated           = 19;
+   google.protobuf.Timestamp deleted           = 20;
 }
 
 // TradeRequest: The Structure of a Trade Request 
@@ -89,9 +89,9 @@ message TradeRequest {
    string                    comment           = 16; // Order comment
    int64                     position          = 17; // Position ticket
    int64                     position_by       = 18; // The ticket of an opposite position
-	google.protobuf.Timestamp created           = 19;
-	google.protobuf.Timestamp updated           = 20;
-	google.protobuf.Timestamp deleted           = 21;   
+   google.protobuf.Timestamp created           = 19;
+   google.protobuf.Timestamp updated           = 20;
+   google.protobuf.Timestamp deleted           = 21;   
 }
 
 // TradeResult: The Structure of a Trade Result 
@@ -107,7 +107,7 @@ message TradeResult {
    string                    comment          = 9;  // Broker comment to operation (by default it is filled by description of trade server return code)
    uint32                    request_id       = 10;  // Request ID set by the terminal during the dispatch 
    uint32                    retcode_external = 11; // Return code of an external trading system
-	google.protobuf.Timestamp created          = 12;
-	google.protobuf.Timestamp updated          = 13;
-	google.protobuf.Timestamp deleted          = 14;
+   google.protobuf.Timestamp created          = 12;
+   google.protobuf.Timestamp updated          = 13;
+   google.protobuf.Timestamp deleted          = 14;
 }

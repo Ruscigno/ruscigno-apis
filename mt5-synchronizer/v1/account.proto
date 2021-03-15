@@ -60,7 +60,7 @@ message Account {
   double                    margin_level   = 19;
   double                    margin_call    = 20;
   double                    margin_stopout = 21;
-	google.protobuf.Timestamp created        = 22;
-	google.protobuf.Timestamp updated        = 23;
-	google.protobuf.Timestamp deleted        = 24;
+  google.protobuf.Timestamp created        = 22;
+  google.protobuf.Timestamp updated        = 23;
+  google.protobuf.Timestamp deleted        = 24;
 }

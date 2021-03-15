@@ -1,3 +1,6 @@
+## v0.14.2
+- feat: additional fields
+
 ## v0.14.1
 - fix: field name
   
