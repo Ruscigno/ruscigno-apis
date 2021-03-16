@@ -1,3 +1,6 @@
+## v0.15.2
+- feat: account_id in the request
+  
 ## v0.15.1
 - feat: server time of the position v2
 
