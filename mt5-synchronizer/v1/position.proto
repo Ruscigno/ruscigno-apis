@@ -47,5 +47,4 @@ message Position {
     int64                     position_update = 20;
     int64                     reason          = 21;
     string                    external_id     = 22;
-    int64                     server_time     = 23;
 }

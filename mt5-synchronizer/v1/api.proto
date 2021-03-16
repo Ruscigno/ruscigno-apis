@@ -53,7 +53,8 @@ message CreateOrdersRequest {
 }
 
 message CreatePositionsRequest {
-    repeated Position positions = 1;
+             int64    server_time = 1;
+    repeated Position positions   = 2;
 }
 
 message CreateTradeTransactionRequest {
