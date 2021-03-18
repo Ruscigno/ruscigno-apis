@@ -1,3 +1,6 @@
+## v0.16.0
+- feat: update name to ticker
+
 ## v0.15.2
 - feat: account_id in the request
   
