@@ -1,3 +1,5 @@
+## v0.16.1
+- feat: add server time field
 ## v0.16.0
 - feat: update name to ticker
 
