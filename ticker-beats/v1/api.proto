@@ -15,12 +15,14 @@ syntax = "proto3";
 
 package mql5_background.v1;
 
+import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "account.proto";
 import "order.proto";
 import "deal.proto";
 import "position.proto";
 import "tradetransaction.proto";
+import "signal.proto";
 
 
 message PagedRequestOptions {
@@ -66,8 +68,32 @@ message CreateTradeTransactionRequest {
     TradeResult      trade_result      = 5;
 }
 
-// Service for RuscignoMetatrader5Service Microservice
-service RuscignoMetatrader5Service {
+message GetSignalDealsRequest {
+  int64 account_id  = 1;
+  int64 server_time = 2;
+}
+
+// *******************
+// Response
+// *******************
+message GetSignalDealsResponse {
+  Signal                    signal = 1;
+  google.protobuf.Timestamp server_time = 2;
+  repeated Deal             deals = 3;
+}
+
+// *******************
+// Services
+// *******************
+
+// Service for TickerBeatsService Microservice
+service TickerBeatsService {
+  // Gets all deals from the signals
+  rpc GetSignalDeals (GetSignalDealsRequest) returns (GetSignalDealsResponse);
+}
+
+// Service for TickerBeatsService Microservice
+service TransactionSService {
   // Creates a new account
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
   // Creates a new deal
@@ -77,5 +103,5 @@ service RuscignoMetatrader5Service {
   // Creates a new position
   rpc CreatePositions (CreatePositionsRequest) returns (google.protobuf.Empty);
   // Creates a trade transation
-  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
+  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (GetSignalDealsResponse);
 }
