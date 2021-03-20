@@ -1,3 +1,6 @@
+## v0.17.1
+- fix: TransactionsService name
+
 ## v0.17.0
 - feat: signal service
 

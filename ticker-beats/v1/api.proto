@@ -93,7 +93,7 @@ service TickerBeatsService {
 }
 
 // Service for TickerBeatsService Microservice
-service TransactionSService {
+service TransactionsService {
   // Creates a new account
   rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
   // Creates a new deal
