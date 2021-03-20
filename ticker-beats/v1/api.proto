@@ -103,5 +103,5 @@ service TransactionsService {
   // Creates a new position
   rpc CreatePositions (CreatePositionsRequest) returns (google.protobuf.Empty);
   // Creates a trade transation
-  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (GetSignalDealsResponse);
+  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
 }

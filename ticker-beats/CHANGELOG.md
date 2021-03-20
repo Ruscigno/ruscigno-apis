@@ -1,3 +1,6 @@
+## v0.17.2
+- fix: CreateTradeTransaction
+
 ## v0.17.1
 - fix: TransactionsService name
 
