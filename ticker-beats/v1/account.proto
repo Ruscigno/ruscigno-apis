@@ -13,7 +13,7 @@
 // limitations under the License.
 syntax = "proto3";
 
-package mql5_background.v1;
+package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
 
@@ -40,10 +40,10 @@ enum AccountMarginMode {
 // Account: Account Properties
 message Account {
   int64                     account_id     = 1;
-  AccountTradeMode          trade_mode     = 2;
+  int32                     trade_mode     = 2;
   int64                     leverage       = 3;
-  AccountMarginMode         margin_mode    = 4;
-  AccountStopoutMode        stopout_mode   = 5;
+  int32                     margin_mode    = 4;
+  int32                     stopout_mode   = 5;
   bool                      trade_allowed  = 6;
   bool                      trade_expert   = 7;
   int64                     limit_orders   = 8;

@@ -1,3 +1,6 @@
+## v0.17.3
+- feat: improve TickerBeats response
+
 ## v0.17.2
 - fix: CreateTradeTransaction
 

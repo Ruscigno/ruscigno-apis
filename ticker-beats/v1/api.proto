@@ -13,7 +13,7 @@
 // limitations under the License.
 syntax = "proto3";
 
-package mql5_background.v1;
+package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
@@ -68,7 +68,7 @@ message CreateTradeTransactionRequest {
     TradeResult      trade_result      = 5;
 }
 
-message GetSignalDealsRequest {
+message GetTickerBeatsRequest {
   int64 account_id  = 1;
   int64 server_time = 2;
 }
@@ -76,10 +76,13 @@ message GetSignalDealsRequest {
 // *******************
 // Response
 // *******************
-message GetSignalDealsResponse {
-  Signal                    signal = 1;
-  google.protobuf.Timestamp server_time = 2;
-  repeated Deal             deals = 3;
+message TickerBeats {
+  Signal        signal = 1;
+  repeated Deal deals  = 2;
+}
+
+message GetTickerBeatsResponse {
+  repeated TickerBeats beats = 1;
 }
 
 // *******************
@@ -89,7 +92,7 @@ message GetSignalDealsResponse {
 // Service for TickerBeatsService Microservice
 service TickerBeatsService {
   // Gets all deals from the signals
-  rpc GetSignalDeals (GetSignalDealsRequest) returns (GetSignalDealsResponse);
+  rpc GetTickerBeats (GetTickerBeatsRequest) returns (GetTickerBeatsResponse);
 }
 
 // Service for TickerBeatsService Microservice

@@ -13,7 +13,7 @@
 // limitations under the License.
 syntax = "proto3";
 
-package mql5_background.v1;
+package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
 
@@ -30,7 +30,7 @@ message Position {
     int64                     ticket          = 3;
     string                    symbol          = 4;
     int64                     position_time   = 5;
-    PositionType              position_type   = 6;
+    int32                     position_type   = 6;
     double                    volume          = 7;
     double                    price_open      = 8;
     double                    stop_loss       = 9;

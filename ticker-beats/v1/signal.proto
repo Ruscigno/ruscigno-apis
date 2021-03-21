@@ -13,14 +13,28 @@
 // limitations under the License.
 syntax = "proto3";
 
-package mql5_background.v1;
+package tickerbeats.v1;
+
+import "google/protobuf/timestamp.proto";
 
 message Signal {
-	int64  SourceAccountID 	    = 1;
-	int64  DestinationAccountID = 2;
+	int64  SourceAccountId 	    = 1;
+	int64  DestinationAccountId = 2;
 	bool   Active               = 3;
 	int32  MaxDeposit           = 4;
 	int32  StopIfLessThan       = 5;
 	double Slippage             = 6;
 	int32  MinutesToExpire      = 7;
+}
+
+message SignalResult {
+	int64                      SourceAccountId      = 1;
+	int64                      DestinationAccountId = 2;
+	int64                      SourceDealId         = 3;
+	int64                      DestinationDealId    = 4;
+	int64                      ExternalId           = 5;
+	google.protobuf.Timestamp  SentTime             = 6;
+	google.protobuf.Timestamp  ConfirmationTime     = 7;
+	google.protobuf.Timestamp  Created              = 8;
+	google.protobuf.Timestamp  Updated              = 9;
 }

@@ -13,7 +13,7 @@
 // limitations under the License.
 syntax = "proto3";
 
-package mql5_background.v1;
+package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
 
@@ -77,15 +77,15 @@ message Order {
     int64                     ticket           = 3;
     string                    symbol           = 4;
     int64                     time_setup       = 5;
-    OrderType                 order_type       = 6;
-    OrderState                state            = 7;
+    int32                     order_type       = 6;
+    int32                     state            = 7;
     int64                     time_expiration  = 8;
     int64                     time_done        = 9;
-    OrderFillingType          type_filling     = 10;
-    OrderTypeTime             type_time        = 11;
+    int32                     type_filling     = 10;
+    int32                     type_time        = 11;
     int64                     magic            = 12;
     int64                     position_id      = 13;
-    OrderReason               reason           = 14;
+    int32                     reason           = 14;
     double                    volume_initial   = 15;
     double                    volume_current   = 16;
     double                    price_open       = 17;
