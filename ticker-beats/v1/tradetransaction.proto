@@ -17,6 +17,8 @@ syntax = "proto3";
 package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
+import "deal.proto";
+import "order.proto";
 
 // TradeRequestActions: Interaction between the client terminal and a trade server for executing the order placing operation is performed by using trade requests
 enum TradeRequestActions {
@@ -49,11 +51,11 @@ message TradeTransaction {
    int64                     deal_id           = 2;  // Deal ticket
    int64                     order_id          = 3;  // Order ticket
    string                    symbol            = 4;  // Trade symbol name
-   int32                     trade_type        = 5;  // Trade transaction type
-   int32                     order_type        = 6;  // Order type
-   int32                     order_state       = 7;  // Order state
-   int32                     deal_type         = 8;  // Deal type
-   int32                     time_type         = 9;  // Order type by action period
+   TradeTransactionType      trade_type        = 5;  // Trade transaction type
+   OrderType                 order_type        = 6;  // Order type
+   OrderState                order_state       = 7;  // Order state
+   DealType                  deal_type         = 8;  // Deal type
+   OrderTypeTime             time_type         = 9;  // Order type by action period
    int64                     time_expiration   = 10; // Order expiration time
    double                    price             = 11; // Price 
    double                    price_trigger     = 12; // Stop limit order activation price
@@ -70,7 +72,7 @@ message TradeTransaction {
 // TradeRequest: The Structure of a Trade Request 
 message TradeRequest {
    int64                     request_id        = 1;  // Request ID
-   int32                     action            = 2;  // Trade operation type
+   TradeRequestActions       action            = 2;  // Trade operation type
    int64                     magic             = 3;  // Expert Advisor ID (magic number)
    int64                     order_id          = 4;  // Order ticket
    string                    symbol            = 5;  // Trade symbol
@@ -80,9 +82,9 @@ message TradeRequest {
    double                    stop_loss         = 9;  // Stop Loss level of the order
    double                    take_profit       = 10;  // Take Profit level of the order
    int64                     deviation         = 11; // Maximal possible deviation from the requested price
-   int32                     order_type        = 12; // Order type
-   int32                     type_filling      = 13; // Order execution type
-   int32                     type_time         = 14; // Order expiration type
+   OrderType                 order_type        = 12; // Order type
+   OrderFillingType          type_filling      = 13; // Order execution type
+   OrderTypeTime             type_time         = 14; // Order expiration type
    int64                     time_expiration   = 15; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
    string                    comment           = 16; // Order comment
    int64                     position          = 17; // Position ticket
