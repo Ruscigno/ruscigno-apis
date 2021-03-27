@@ -1,3 +1,6 @@
+## v0.17.6
+- fix: services signatures
+
 ## v0.17.5
 - fix: names
 
