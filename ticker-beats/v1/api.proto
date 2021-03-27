@@ -76,15 +76,9 @@ message TickerBeatsRequest {
 // *******************
 // Response
 // *******************
-message TransactionBeats {
-  TradeTransaction trade_transaction = 1;
-  TradeRequest     trade_request     = 2;
-  TradeResult      trade_result      = 3;
-}
-
 message TradeBeats {
-           Signal           signal = 1;
-  repeated TransactionBeats trades = 2;
+           Signal   signal = 1;
+  repeated Position beats = 2;
 }
 
 message TickerBeatsResponse {

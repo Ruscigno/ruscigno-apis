@@ -1,3 +1,6 @@
+## v0.17.10
+- feat: return a list of positions instead of deals
+
 ## v0.17.9
 - fix: struct response name
 
