@@ -1,3 +1,6 @@
+## v0.17.9
+- fix: struct response name
+
 ## v0.17.8
 - feat: only one ticker service
 
