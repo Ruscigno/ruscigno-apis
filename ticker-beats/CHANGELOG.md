@@ -1,3 +1,6 @@
+## v0.17.4
+- feat: implementation of TickerTrades
+
 ## v0.17.3
 - feat: improve TickerBeats response
 
