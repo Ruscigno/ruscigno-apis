@@ -88,11 +88,11 @@ message TradeBeats {
   TradeResult      trade_result      = 3;
 }
 
-message GetTickerDealsResponse {
+message GetDealBeatsResponse {
   repeated DealBeats beats = 1;
 }
 
-message GetTickerTradesResponse {
+message GetTradeBeatsResponse {
   repeated TradeBeats beats = 1;
 }
 
@@ -103,8 +103,8 @@ message GetTickerTradesResponse {
 // Service for TickerBeatsService Microservice
 service TickerBeatsService {
   // Gets all deals from the signals
-  rpc GetDealBeats (GetTickerBeatsRequest) returns (GetTickerDealsResponse);
-  rpc GetTickerTrades (GetTickerBeatsRequest) returns (GetTickerTradesResponse);
+  rpc GetDealBeats (GetTickerBeatsRequest) returns (GetDealBeatsResponse);
+  rpc GetTradeBeats (GetTickerBeatsRequest) returns (GetTradeBeatsResponse);
 }
 
 // Service for TickerBeatsService Microservice
