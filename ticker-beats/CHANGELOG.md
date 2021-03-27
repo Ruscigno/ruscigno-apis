@@ -1,3 +1,6 @@
+## v0.17.8
+- feat: only one ticker service
+
 ## v0.17.6
 - fix: services signatures
 
