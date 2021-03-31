@@ -30,8 +30,8 @@ message Signal {
 message SignalResult {
 	int64                      SourceAccountId      = 1;
 	int64                      DestinationAccountId = 2;
-	int64                      SourceDealId         = 3;
-	int64                      DestinationDealId    = 4;
+	int64                      SourceBeatsId        = 3;
+	int64                      DestinationBeatsId   = 4;
 	int64                      ExternalId           = 5;
 	google.protobuf.Timestamp  SentTime             = 6;
 	google.protobuf.Timestamp  ConfirmationTime     = 7;

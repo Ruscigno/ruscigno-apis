@@ -1,3 +1,6 @@
+## v0.19.0
+- feat: change on SignalResult
+
 ## v0.18.0
 - feat: update transactions model
 
