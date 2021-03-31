@@ -1,3 +1,6 @@
+## v0.17.12
+- feat: update transactions model
+
 ## v0.17.11
 - feat: add magic number to positions
 
