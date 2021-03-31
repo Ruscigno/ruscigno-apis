@@ -1,4 +1,4 @@
-## v0.17.12
+## v0.18.0
 - feat: update transactions model
 
 ## v0.17.11
