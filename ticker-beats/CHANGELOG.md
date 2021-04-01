@@ -1,3 +1,6 @@
+## v0.19.1
+- feat: add ID to the model
+
 ## v0.19.0
 - feat: change on SignalResult
 

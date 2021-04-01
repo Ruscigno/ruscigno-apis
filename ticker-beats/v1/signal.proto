@@ -18,23 +18,25 @@ package tickerbeats.v1;
 import "google/protobuf/timestamp.proto";
 
 message Signal {
-	int64  SourceAccountId 	    = 1;
-	int64  DestinationAccountId = 2;
-	bool   Active               = 3;
-	int32  MaxDeposit           = 4;
-	int32  StopIfLessThan       = 5;
-	double Slippage             = 6;
-	int32  MinutesToExpire      = 7;
+    int64  SignalId             = 1;
+	int64  SourceAccountId 	    = 2;
+	int64  DestinationAccountId = 3;
+	bool   Active               = 4;
+	int32  MaxDeposit           = 5;
+	int32  StopIfLessThan       = 6;
+	double Slippage             = 7;
+	int32  MinutesToExpire      = 8;
 }
 
 message SignalResult {
-	int64                      SourceAccountId      = 1;
-	int64                      DestinationAccountId = 2;
-	int64                      SourceBeatsId        = 3;
-	int64                      DestinationBeatsId   = 4;
-	int64                      ExternalId           = 5;
-	google.protobuf.Timestamp  SentTime             = 6;
-	google.protobuf.Timestamp  ConfirmationTime     = 7;
-	google.protobuf.Timestamp  Created              = 8;
-	google.protobuf.Timestamp  Updated              = 9;
+    int64                      SignalResultId       = 1;
+	int64                      SourceAccountId      = 2;
+	int64                      DestinationAccountId = 3;
+	int64                      SourceBeatsId        = 4;
+	int64                      DestinationBeatsId   = 5;
+	int64                      ExternalId           = 6;
+	google.protobuf.Timestamp  SentTime             = 7;
+	google.protobuf.Timestamp  ConfirmationTime     = 8;
+	google.protobuf.Timestamp  Created              = 9;
+	google.protobuf.Timestamp  Updated              = 10;
 }
