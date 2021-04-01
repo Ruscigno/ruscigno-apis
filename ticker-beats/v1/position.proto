@@ -41,9 +41,9 @@ message Position {
     double                    profit          = 14;
     int64                     identifier      = 15;
     string                    comment         = 16;
-    google.protobuf.Timestamp created         = 17;
-    google.protobuf.Timestamp updated         = 18;
-    google.protobuf.Timestamp deleted         = 19;
+    int64                     created         = 17;
+    int64                     updated         = 18;
+    int64                     deleted         = 19;
     int64                     position_update = 20;
     int64                     reason          = 21;
     string                    external_id     = 22;
