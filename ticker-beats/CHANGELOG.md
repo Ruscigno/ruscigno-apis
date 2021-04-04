@@ -1,3 +1,6 @@
+## v0.19.3
+- feat: return orders and positions 
+
 ## v0.19.2
 - feat: datetime as integer
 

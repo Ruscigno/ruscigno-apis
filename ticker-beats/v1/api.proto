@@ -77,8 +77,9 @@ message TickerBeatsRequest {
 // Response
 // *******************
 message TradeBeats {
-           Signal   signal = 1;
-  repeated Position beats = 2;
+           Signal   signal    = 1;
+  repeated Position positions = 2;
+  repeated Order    orders    = 3;
 }
 
 message TickerBeatsResponse {
@@ -92,6 +93,7 @@ message TickerBeatsResponse {
 // Service for TickerBeatsService Microservice
 service TickerBeatsService {
   rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
+  rpc GetTickerBeatsOrders (TickerBeatsRequest) returns (TickerBeatsResponse);
 }
 
 // Service for TickerBeatsService Microservice
