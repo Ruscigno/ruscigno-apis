@@ -1,3 +1,6 @@
+## v0.19.5
+- feat: add beats type enum
+
 ## v0.19.4
 - feat: add beats type to the request
 
