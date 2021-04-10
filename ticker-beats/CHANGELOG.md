@@ -1,3 +1,6 @@
+## v0.19.8
+- feat: rollback SignalType
+
 ## v0.19.7
 - feat: improving field name
 
