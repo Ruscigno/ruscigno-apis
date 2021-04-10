@@ -1,3 +1,6 @@
+## v0.19.7
+- feat: improving field name
+
 ## v0.19.6
 - feat: created, updated, deleted as int64
 

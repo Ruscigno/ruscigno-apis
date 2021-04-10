@@ -17,12 +17,6 @@ package tickerbeats.v1;
 
 import "google/protobuf/timestamp.proto";
 
-// SignalType: type of the signal
-enum SignalType {
-    SIGINAL_TYPE_ORDER    = 0; //Order beats
-    SIGINAL_TYPE_POSITION = 1; //Position beats
-}
-
 message Signal {
     int64  SignalId             = 1;
 	int64  SourceAccountId 	    = 2;
@@ -30,7 +24,7 @@ message Signal {
 	bool   Active               = 4;
 	int32  MaxDeposit           = 5;
 	int32  StopIfLessThan       = 6;
-	double Slippage             = 7;
+	double MaxSpread            = 7;
 	int32  MinutesToExpire      = 8;
 }
 
