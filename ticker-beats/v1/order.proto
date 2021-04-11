@@ -99,4 +99,5 @@ message Order {
     int64            updated          = 25;
     int64            deleted          = 26;
     int64            position_by_id   = 27;
+    bool             direction        = 28;
 }
