@@ -78,9 +78,10 @@ message TickerBeatsRequest {
 // Response
 // *******************
 message TradeBeats {
-           Signal   signal    = 1;
-  repeated Position positions = 2;
-  repeated Order    orders    = 3;
+           Signal       signal        = 1;
+  repeated Position     positions     = 2;
+  repeated Order        orders        = 3;
+  repeated TradeRequest trade_request = 4;
 }
 
 message TickerBeatsResponse {
