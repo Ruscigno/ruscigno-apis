@@ -19,8 +19,9 @@ import "google/protobuf/timestamp.proto";
 
 // SignalType: type of the signal
 enum SignalType {
-    SIGINAL_TYPE_ORDER    = 0; // Order beats
-    SIGINAL_TYPE_POSITION = 1; // Position beats
+    SIGINAL_TYPE_ORDER         = 0; // Return all unsynced orders
+    SIGINAL_TYPE_POSITION      = 1; // Return all unsynced positions
+    SIGINAL_TYPE_TRADE_REQUEST = 2; // Return all pending trades
 }
 
 message Signal {

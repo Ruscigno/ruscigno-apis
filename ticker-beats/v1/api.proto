@@ -70,23 +70,31 @@ message CreateTradeTransactionRequest {
 }
 
 message TickerBeatsRequest {
-  int64      account_id  = 1;
-  int64      server_time = 2;
-  SignalType beats_type  = 3;
+    int64      AccountId   = 1;
+    int64      ServerTime  = 2;
+    SignalType BeatsType   = 3;
+    int64      LastOrderId = 4;
+}
+
+message TickerBeatsConfirmationRequest {
+    int64 AccountId   = 1;
+    int64 ServerTime  = 2;
+    int64 BeatsId     = 3;
 }
 
 // *******************
 // Response
 // *******************
 message TradeBeats {
-           Signal       signal        = 1;
-  repeated Position     positions     = 2;
-  repeated Order        orders        = 3;
-  repeated TradeRequest trade_request = 4;
+           Signal       Signal        = 1;
+  repeated Position     Positions     = 2;
+  repeated Order        Orders        = 3;
+  repeated TradeRequest TradeRequest = 4;
 }
 
 message TickerBeatsResponse {
-  repeated TradeBeats beats = 1;
+  int64               ExpirationTime  = 1;
+  repeated TradeBeats Beats           = 2;
 }
 
 // *******************
@@ -96,7 +104,7 @@ message TickerBeatsResponse {
 // Service for TickerBeatsService Microservice
 service TickerBeatsService {
   rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
-  rpc GetTickerBeatsOrders (TickerBeatsRequest) returns (TickerBeatsResponse);
+  rpc ConfirmBeatsTransaction (TickerBeatsConfirmationRequest) returns (google.protobuf.Empty);
 }
 
 // Service for TickerBeatsService Microservice

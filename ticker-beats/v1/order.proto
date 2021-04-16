@@ -100,4 +100,5 @@ message Order {
     int64            deleted          = 26;
     int64            position_by_id   = 27;
     bool             direction        = 28;
+    int64            beats_id         = 29; // The ID used to confirm an executed beat
 }

@@ -93,7 +93,8 @@ message TradeRequest {
   int64                     position_by     = 19; // The ticket of an opposite tradetransaction
   google.protobuf.Timestamp created         = 20;
   google.protobuf.Timestamp updated         = 21;
-  google.protobuf.Timestamp deleted         = 22;   
+  google.protobuf.Timestamp deleted         = 22; 
+  int64                     beats_id        = 23; // The ID used to confirm an executed beat  
 }
 
 // TradeResult: The Structure of a Trade Result 
