@@ -1,3 +1,6 @@
+## v0.20.1
+- feat: snake names
+
 ## v0.20.0
 - feat: ticker beats synch, try II
 
