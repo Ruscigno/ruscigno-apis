@@ -70,9 +70,9 @@ message CreateTradeTransactionRequest {
 }
 
 message TickerBeatsRequest {
-    int64      account_id   = 1;
-    int64      server_time  = 2;
-    SignalType beats_type   = 3;
+    int64      account_id    = 1;
+    int64      server_time   = 2;
+    SignalType signal_type   = 3;
     int64      last_order_id = 4;
 }
 
@@ -94,7 +94,7 @@ message TradeBeats {
 
 message TickerBeatsResponse {
   int64               expiration_time  = 1;
-  repeated TradeBeats beats           = 2;
+  repeated TradeBeats beats            = 2;
 }
 
 // *******************

@@ -1,3 +1,6 @@
+## v0.20.2
+- feat: improve names
+
 ## v0.20.1
 - feat: snake names
 
