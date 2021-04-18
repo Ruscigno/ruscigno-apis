@@ -1,3 +1,6 @@
+## v0.20.3
+- fix: TickerBeatsResponse
+
 ## v0.20.2
 - feat: improve names
 
