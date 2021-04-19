@@ -87,7 +87,7 @@ message TickerBeatsConfirmationRequest {
 // *******************
 message TradeBeats {
            Signal       signal           = 1;
-           int64        expiration_time  = 2;
+           int32        expiration_time  = 2;
   repeated Position     positions        = 3;
   repeated Order        orders           = 4;
   repeated TradeRequest trade_request    = 5;
