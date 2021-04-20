@@ -99,6 +99,7 @@ message TradeRequest {
   google.protobuf.Timestamp created         = 20;
   google.protobuf.Timestamp updated         = 21;
   google.protobuf.Timestamp deleted         = 22;
+  DealEntry                 entry           = 23; // DealEntry: Deal entry - entry in, entry out, reverse
 }
 
 // TradeResult: The Structure of a Trade Result 

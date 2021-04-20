@@ -94,7 +94,7 @@ message TradeBeats {
 }
 
 message TickerBeatsResponse {
-  repeated TradeBeats beats            = 1;
+  repeated TradeBeats beats = 1;
 }
 
 // *******************
