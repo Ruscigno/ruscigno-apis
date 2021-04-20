@@ -26,14 +26,14 @@ enum SignalType {
 }
 
 message Signal {
-    int64  SignalId             = 1;
-	int64  SourceAccountId 	    = 2;
-	int64  DestinationAccountId = 3;
-	bool   Active               = 4;
-	int32  MaxDeposit           = 5;
-	int32  StopIfLessThan       = 6;
-	double MaxSpread            = 7;
-	int32  MinutesToExpire      = 8;
+    int64 SignalId             = 1;
+	int64 SourceAccountId 	   = 2;
+	int64 DestinationAccountId = 3;
+	bool  Active               = 4;
+	int32 MaxDeposit           = 5;
+	int32 StopIfLessThan       = 6;
+	int64 MaxSpread            = 7;
+	int32 MinutesToExpire      = 8;
 }
 
 message SignalResult {
