@@ -64,4 +64,5 @@ message Account {
   google.protobuf.Timestamp updated        = 23;
   google.protobuf.Timestamp deleted        = 24;
   int64                     server_time    = 25;
+  int64                     TimeGMTOffset  = 26;
 }

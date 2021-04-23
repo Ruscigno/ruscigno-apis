@@ -55,9 +55,10 @@ message CreateOrdersRequest {
 }
 
 message CreatePositionsRequest {
-             int64    server_time = 1;
-    repeated Position positions   = 2;
-             int64    account_id  = 3;
+             int64    server_time   = 1;
+    repeated Position positions     = 2;
+             int64    account_id    = 3;
+             int64    TimeGMTOffset = 4;
 }
 
 message CreateTradeTransactionRequest {
@@ -67,6 +68,7 @@ message CreateTradeTransactionRequest {
     TradeTransaction trade_transaction = 4;
     TradeRequest     trade_request     = 5;
     TradeResult      trade_result      = 6;
+    int64            TimeGMTOffset     = 7;
 }
 
 message TickerBeatsRequest {
