@@ -37,14 +37,14 @@ message Signal {
 }
 
 message SignalResult {
-    int64                      SignalResultId       = 1;
-	int64                      SourceAccountId      = 2;
-	int64                      DestinationAccountId = 3;
-	int64                      SourceBeatsId        = 4;
-	int64                      DestinationBeatsId   = 5;
-	int64                      ExternalId           = 6;
-	int64                      SentTime             = 7;
-	int64                      ConfirmationTime     = 8;
-	int64                      Created              = 9;
-	int64                      Updated              = 10;
+    int64 SignalResultId       = 1;
+	int64 SourceAccountId      = 2;
+	int64 DestinationAccountId = 3;
+	int64 SourceBeatsId        = 4;
+	int64 DestinationBeatsId   = 5;
+	int64 ExternalId           = 6;
+	int64 SentTime             = 7;
+	int64 ConfirmationTime     = 8;
+	int64 Created              = 9;
+	int64 Updated              = 10;
 }
