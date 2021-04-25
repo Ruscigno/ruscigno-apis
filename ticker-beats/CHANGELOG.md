@@ -1,4 +1,7 @@
 ## v0.20.10
+- feat: add TimeGMTOffset to trade transation
+
+## v0.20.10
 - feat: saving times and offsets 2.0
 
 ## v0.20.9
