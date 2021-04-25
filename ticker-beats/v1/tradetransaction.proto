@@ -73,6 +73,7 @@ message TradeTransaction {
   google.protobuf.Timestamp created           = 19;
   google.protobuf.Timestamp updated           = 20;
   google.protobuf.Timestamp deleted           = 21;
+  int64                     TimeGMTOffset     = 23;
 }
 
 // TradeRequest: The Structure of a Trade Request 
@@ -100,6 +101,7 @@ message TradeRequest {
   google.protobuf.Timestamp updated         = 21;
   google.protobuf.Timestamp deleted         = 22;
   DealEntry                 entry           = 23; // DealEntry: Deal entry - entry in, entry out, reverse
+  int64                     TimeGMTOffset   = 24;
 }
 
 // TradeResult: The Structure of a Trade Result 

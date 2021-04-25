@@ -48,5 +48,5 @@ message Position {
     int64                     reason          = 21;
     string                    external_id     = 22;
     int64                     magic           = 23;
-    int64                     beats_id        = 24; // The ID used to confirm an executed beat
+    int64                     TimeGMTOffset   = 24;
 }
