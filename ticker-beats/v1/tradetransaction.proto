@@ -70,9 +70,9 @@ message TradeTransaction {
   double                    volume            = 16; // Volume in lots
   int64                     position_id       = 17; // Position ticket
   int64                     position_by       = 18; // Ticket of an opposite position
-  google.protobuf.Timestamp created           = 19;
-  google.protobuf.Timestamp updated           = 20;
-  google.protobuf.Timestamp deleted           = 21;
+  int64                     created           = 19;
+  int64                     updated           = 20;
+  int64                     deleted           = 21;
   int64                     TimeGMTOffset     = 23;
 }
 
@@ -97,9 +97,9 @@ message TradeRequest {
   string                    comment         = 17; // Order comment
   int64                     position_id     = 18; // TradeTransaction ticket
   int64                     position_by     = 19; // The ticket of an opposite tradetransaction
-  google.protobuf.Timestamp created         = 20;
-  google.protobuf.Timestamp updated         = 21;
-  google.protobuf.Timestamp deleted         = 22;
+  int64                     created         = 20;
+  int64                     updated         = 21;
+  int64                     deleted         = 22;
   DealEntry                 entry           = 23; // DealEntry: Deal entry - entry in, entry out, reverse
   int64                     TimeGMTOffset   = 24;
 }
@@ -118,7 +118,7 @@ message TradeResult {
   string                    comment          = 10; // Broker comment to operation (by default it is filled by description of trade server return code)
   uint32                    request_id       = 11; // Request ID set by the terminal during the dispatch
   uint32                    retcode_external = 12; // Return code of an external trading system
-  google.protobuf.Timestamp created          = 13;
-  google.protobuf.Timestamp updated          = 14;
-  google.protobuf.Timestamp deleted          = 15;
+  int64                     created          = 13;
+  int64                     updated          = 14;
+  int64                     deleted          = 15;
 }

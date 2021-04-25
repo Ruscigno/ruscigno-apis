@@ -66,9 +66,9 @@ message Deal {
     double                    profit        = 15;
     string                    comment       = 16;
     string                    external_id   = 17;
-    google.protobuf.Timestamp created       = 18;
-    google.protobuf.Timestamp updated       = 19;
-    google.protobuf.Timestamp deleted       = 20;
+    int64                     created       = 18;
+    int64                     updated       = 19;
+    int64                     deleted       = 20;
     int64                     reason        = 21;
     double                    deal_fee      = 22;
     int64                     TimeGMTOffset = 23;

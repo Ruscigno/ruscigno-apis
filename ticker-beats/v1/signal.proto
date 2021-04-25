@@ -43,8 +43,8 @@ message SignalResult {
 	int64                      SourceBeatsId        = 4;
 	int64                      DestinationBeatsId   = 5;
 	int64                      ExternalId           = 6;
-	google.protobuf.Timestamp  SentTime             = 7;
-	google.protobuf.Timestamp  ConfirmationTime     = 8;
-	google.protobuf.Timestamp  Created              = 9;
-	google.protobuf.Timestamp  Updated              = 10;
+	int64                      SentTime             = 7;
+	int64                      ConfirmationTime     = 8;
+	int64                      Created              = 9;
+	int64                      Updated              = 10;
 }
