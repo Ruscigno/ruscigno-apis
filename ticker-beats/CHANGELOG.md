@@ -1,3 +1,6 @@
+## v0.20.11
+- feat: close all open position
+
 ## v0.20.10
 - feat: add TimeGMTOffset to trade transation
 

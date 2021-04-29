@@ -55,7 +55,9 @@ message CreateOrdersRequest {
 }
 
 message CreatePositionsRequest {
-    repeated Position positions = 1;
+    repeated Position positions   = 1;
+             int64    account_id  = 2; //Used to close all open positions in the case there is no positions open
+             int64    TimeGMT     = 3; //Used to close all open positions in the case there is no positions open
 }
 
 message CreateTradeTransactionRequest {
