@@ -1,3 +1,6 @@
+## v0.20.12
+- Return all unsynced deals
+
 ## v0.20.11
 - feat: close all open position
 
