@@ -66,6 +66,7 @@ message CreateTradeTransactionRequest {
     TradeTransaction trade_transaction = 4;
     TradeRequest     trade_request     = 5;
     TradeResult      trade_result      = 6;
+    int64            TimeGMT           = 7;
 }
 
 message TickerBeatsRequest {
