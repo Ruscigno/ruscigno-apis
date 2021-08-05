@@ -21,19 +21,17 @@ message AllowedDomain {
 enum Status {
 	STOPED  = 0;
 	STARTED = 1;
-    ABORTED = 2;
 }
 
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Enqueuer {
-             int32                     source_id           = 2;
-             string                    start_url           = 3;
-    repeated AllowedDomain             allowed_domain      = 4;
-             uint32                    duration_in_minutes = 5;
-             uint32                    max_depth           = 6;
-             Status                    status              = 7;
-    repeated Rule                      rules               = 8;
-             google.protobuf.Timestamp stoped              = 9;
-             google.protobuf.Timestamp started             = 10;
+             int32                     source_id           = 1;
+             string                    start_url           = 2;
+    repeated AllowedDomain             allowed_domain      = 3;
+             uint32                    duration_in_minutes = 4;
+             uint32                    max_depth           = 5;
+             Status                    status              = 6;
+    repeated Rule                      rules               = 7;
+             google.protobuf.Timestamp modified            = 8;
 
 }
