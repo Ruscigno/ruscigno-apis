@@ -19,7 +19,7 @@ message AllowedDomain {
 }
 
 enum Status {
-	STOPED  = 0;
+	STOPPED  = 0;
 	STARTED = 1;
 }
 
