@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package tickerscraper.v1;
+
+import "google/protobuf/empty.proto";
+import "enqueuer.proto";
+
+message EnqueuerMessage {
+  Enqueuer enqueuer   = 1;
+}
+
+message EnqueuerIdMessage {
+  string enqueuer_id   = 1;
+}
+
+service TransactionsService {
+  rpc CreateEnqueuer (EnqueuerMessage) returns (EnqueuerIdMessage);
+  rpc ListEnqueuer (EnqueuerIdMessage) returns (EnqueuerMessage);
+  rpc StartEnqueuer (EnqueuerIdMessage) returns (google.protobuf.Empty);
+  rpc StopEnqueuer (EnqueuerIdMessage) returns (google.protobuf.Empty);
+}

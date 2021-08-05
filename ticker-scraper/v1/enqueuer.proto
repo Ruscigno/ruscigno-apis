@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package tickerscraper.v1;
+
+option go_package = "github.com/protocolbuffers/protobuf/examples/go/tutorialpb";
+
+message Rule {
+	string Name      = 1;
+	int32  Action    = 2;
+	string Selector  = 3;
+	string Attribute = 4;
+}
+
+message AllowedDomain {
+	string Domain            = 1;
+	int32  URLRegexValidator = 2;
+}
+
+// Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
+message Enqueuer {
+                string        EnqueuerID        = 1;
+                int32         SourceID          = 2;
+                string        StartURL          = 3;
+    repeated AllowedDomain AllowedDomain     = 4;
+                uint32        DurationInMinutes = 5;
+                uint32        MaxDepth          = 6;
+                bool          Aborted           = 7;
+    repeated Rule          Rules             = 8;
+}
