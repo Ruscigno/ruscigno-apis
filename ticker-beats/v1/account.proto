@@ -15,7 +15,7 @@ syntax = "proto3";
 
 package tickerbeats.v1;
 
-import "google/protobuf/timestamp.proto";
+option go_package = "ticker-beats/v1";
 
 // AccountTradeMode represents the modes an account could have
 enum AccountTradeMode {

@@ -1,3 +1,6 @@
+## v0.20.14
+- feat: update ticker-beats protos
+
 ## v0.20.13
 - feat: add TimeGMT
 

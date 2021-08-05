@@ -15,7 +15,8 @@ syntax = "proto3";
 
 package tickerbeats.v1;
 
-import "google/protobuf/timestamp.proto";
+option go_package = "ticker-beats/v1";
+
 import "google/protobuf/empty.proto";
 import "account.proto";
 import "order.proto";
