@@ -15,7 +15,7 @@ message EnqueuerIdMessage {
   string enqueuer_id   = 1;
 }
 
-service TransactionsService {
+service EnqueuerService {
   rpc CreateEnqueuer (EnqueuerMessage) returns (EnqueuerIdMessage);
   rpc ListEnqueuer (EnqueuerIdMessage) returns (EnqueuerMessage);
   rpc StartEnqueuer (EnqueuerIdMessage) returns (google.protobuf.Empty);
