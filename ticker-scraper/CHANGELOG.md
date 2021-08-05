@@ -1,3 +1,6 @@
+## 0.1.2
+- feat: improve names and change api
+
 ## 0.1.1
 - fix: server name
 
