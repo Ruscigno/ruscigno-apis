@@ -11,17 +11,13 @@ message EnqueuerMessage {
   Enqueuer enqueuer   = 1;
 }
 
-message EnqueuerIdMessage {
-  string enqueuer_id   = 1;
-}
-
 message SourceIdMessage {
   string source_id   = 1;
 }
 
 service EnqueuerService {
-  rpc CreateEnqueuer (EnqueuerMessage) returns (EnqueuerIdMessage);
+  rpc CreateEnqueuer (EnqueuerMessage) returns (google.protobuf.Empty);
   rpc ListEnqueuer (SourceIdMessage) returns (EnqueuerMessage);
-  rpc StartEnqueuer (EnqueuerIdMessage) returns (google.protobuf.Empty);
-  rpc StopEnqueuer (EnqueuerIdMessage) returns (google.protobuf.Empty);
+  rpc StartEnqueuer (SourceIdMessage) returns (google.protobuf.Empty);
+  rpc StopEnqueuer (SourceIdMessage) returns (google.protobuf.Empty);
 }
