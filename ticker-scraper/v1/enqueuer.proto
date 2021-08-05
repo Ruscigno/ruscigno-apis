@@ -4,6 +4,8 @@ package tickerscraper.v1;
 
 option go_package = "ticker-scraper/v1";
 
+import "google/protobuf/timestamp.proto";
+
 message Rule {
 	string name      = 1;
 	int32  action    = 2;
@@ -16,13 +18,22 @@ message AllowedDomain {
 	int32  url_regex_validator = 2;
 }
 
+enum Status {
+	STOPED  = 0;
+	STARTED = 1;
+    ABORTED = 2;
+}
+
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Enqueuer {
-                int32         source_id           = 2;
-                string        start_url           = 3;
-    repeated AllowedDomain    allowed_domain      = 4;
-                uint32        duration_in_minutes = 5;
-                uint32        max_depth           = 6;
-                bool          aborted             = 7;
-    repeated Rule             rules               = 8;
+             int32                     source_id           = 2;
+             string                    start_url           = 3;
+    repeated AllowedDomain             allowed_domain      = 4;
+             uint32                    duration_in_minutes = 5;
+             uint32                    max_depth           = 6;
+             Status                    status              = 7;
+    repeated Rule                      rules               = 8;
+             google.protobuf.Timestamp stoped              = 9;
+             google.protobuf.Timestamp started             = 10;
+
 }
