@@ -1,2 +1,2 @@
 ## 0.1.0
-- feat: create Enqueuer endpoints
+- feat: create ticker-scraper protos
