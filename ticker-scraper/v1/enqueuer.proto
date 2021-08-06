@@ -7,8 +7,9 @@ option go_package = "ticker-scraper/v1";
 import "google/protobuf/timestamp.proto";
 
 enum Action {
-	SEARCH  = 0;
+	SEARCH   = 0;
 	DOWNLOAD = 1;
+	SCRAPE   = 2;
 }
 
 enum Status {
