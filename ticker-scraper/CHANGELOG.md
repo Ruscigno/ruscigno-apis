@@ -1,3 +1,5 @@
+## 0.1.9
+- feat: allowed_domain, disallowed_domain
 ## 0.1.8
 - feat: renaming to crawler
 ## 0.1.7

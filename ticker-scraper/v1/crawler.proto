@@ -24,20 +24,16 @@ message Rule {
 	string attribute = 4;
 }
 
-message AllowedDomain {
-	string domain              = 1;
-	string url_regex_validator = 2;
-}
-
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Crawler {
              int32                     source_id           = 1;
              string                    start_url           = 2;
-    repeated AllowedDomain             allowed_domain      = 3;
+    repeated string                    allowed_domain      = 3;
              uint32                    duration_in_minutes = 4;
              uint32                    max_depth           = 5;
              Status                    status              = 6;
     repeated Rule                      rules               = 7;
              google.protobuf.Timestamp modified            = 8;
-
+    repeated string                    disallowed_domain   = 9;
+    repeated string                    url_regex_filter    = 10;
 }
