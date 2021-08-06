@@ -30,7 +30,7 @@ message AllowedDomain {
 }
 
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
-message Enqueuer {
+message Crawler {
              int32                     source_id           = 1;
              string                    start_url           = 2;
     repeated AllowedDomain             allowed_domain      = 3;
