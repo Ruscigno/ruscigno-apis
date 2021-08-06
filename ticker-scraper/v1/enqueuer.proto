@@ -6,9 +6,19 @@ option go_package = "ticker-scraper/v1";
 
 import "google/protobuf/timestamp.proto";
 
+enum Action {
+	SEARCH  = 0;
+	DOWNLOAD = 1;
+}
+
+enum Status {
+	STOPPED  = 0;
+	STARTED = 1;
+}
+
 message Rule {
 	string name      = 1;
-	int32  action    = 2;
+	Action action    = 2;
 	string selector  = 3;
 	string attribute = 4;
 }
@@ -16,11 +26,6 @@ message Rule {
 message AllowedDomain {
 	string domain              = 1;
 	string url_regex_validator = 2;
-}
-
-enum Status {
-	STOPPED  = 0;
-	STARTED = 1;
 }
 
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request

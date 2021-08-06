@@ -1,4 +1,6 @@
-## 0.1.6
+## 0.1.7
+- feat: action enum
+- ## 0.1.6
 - fix: field type
   
 ## 0.1.5
