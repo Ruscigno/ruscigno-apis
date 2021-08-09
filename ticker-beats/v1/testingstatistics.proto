@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package tickerbeats.v1;
+
+option go_package = "ticker-beats/v1";
+
+// Position: Execution of trade operations results in the opening of a position
+message TestingStatistics {
+    double InitialDeposit      = 1; //The value of the initial deposit
+    double Withdrawal          = 2; //Money withdrawn from an account
+    double Profit              = 3; //Net profit after testing, the sum of GROSS_PROFIT and GROSS_LOSS (GROSS_LOSS is always less than or equal to zero)
+    double GrossProfit         = 4; //Total profit, the sum of all profitable (positive) trades. The value is greater than or equal to zero
+    double GrossLoss           = 5; //Total loss, the sum of all negative trades. The value is less than or equal to zero
+    double MaxProfittrade      = 6; //Maximum profit – the largest value of all profitable trades. The value is greater than or equal to zero
+    double MaxLosstrade        = 7; //Maximum loss – the lowest value of all losing trades. The value is less than or equal to zero
+    double ConProfitMax        = 8; //Maximum profit in a series of profitable trades. The value is greater than or equal to zero
+    int32  ConProfitMaxTrades  = 9; //The number of trades that have formed CONPROFITMAX (maximum profit in a series of profitable trades)
+    double MaxConWins          = 10; //The total profit of the longest series of profitable trades
+    int32  MaxConProfitTrades  = 11; //The number of trades in the longest series of profitable trades MAX_CONWINS
+    double ConLossMax          = 12; //Maximum loss in a series of losing trades. The value is less than or equal to zero
+    int32  ConLossMaxTrades    = 13; //The number of trades that have formed CONLOSSMAX (maximum loss in a series of losing trades)
+    double MaxConlosses        = 14; //The total loss of the longest series of losing trades
+    int32  MaxConlossTrades    = 15; //The number of trades in the longest series of losing trades MAX_CONLOSSES
+    double BalanceMin          = 16; //Minimum balance value
+    double BalanceDD           = 17; //Maximum balance drawdown in monetary terms. In the process of trading, a balance may have numerous drawdowns; here the largest value is taken
+    double BalanceDDPercent    = 18; //Balance drawdown as a percentage that was recorded at the moment of the maximum balance drawdown in monetary terms (BALANCE_DD).
+    double BalanceDDrelPercent = 19; //Maximum balance drawdown as a percentage. In the process of trading, a balance may have numerous drawdowns, for each of which the relative drawdown value in percents is calculated. The greatest value is returned
+    double BalanceDDRelative   = 20; //Balance drawdown in monetary terms that was recorded at the moment of the maximum balance drawdown as a percentage (BALANCE_DDREL_PERCENT).
+    double EquityMin           = 21; //Minimum equity value
+    double EquityDD            = 22; //Maximum equity drawdown in monetary terms. In the process of trading, numerous drawdowns may appear on the equity; here the largest value is taken
+    double EquityDDPercent     = 23; //Drawdown in percent that was recorded at the moment of the maximum equity drawdown in monetary terms (EQUITY_DD).
+    double EquityDDrelPercent  = 24; //Maximum equity drawdown as a percentage. In the process of trading, an equity may have numerous drawdowns, for each of which the relative drawdown value in percents is calculated. The greatest value is returned
+    double EquityDDRelative    = 25; //Equity drawdown in monetary terms that was recorded at the moment of the maximum equity drawdown in percent (EQUITY_DDREL_PERCENT).
+    double ExpectedPayoff      = 26; //Expected payoff
+    double ProfitFactor        = 27; //Profit factor, equal to the ratio of GROSS_PROFIT/GROSS_LOSS. If GROSS_LOSS=0, the profit factor is equal to DBL_MAX
+    double RecoveryFactor      = 28; //Recovery factor, equal to the ratio of PROFIT/BALANCE_DD
+    double SharpeRatio         = 29; //Sharpe ratio
+    double MinMarginlevel      = 30; //Minimum value of the margin level
+    double CustomOnTester      = 31; //The value of the calculated custom optimization criterion returned by the OnTester() function
+    int32  Deals               = 32; //The number of deals
+    int32  Trades              = 33; //The number of trades
+    int32  ProfitTrades        = 34; //Profitable trades
+    int32  LossTrades          = 35; //Losing trades
+    int32  ShortTrades         = 36; //Short trades
+    int32  LongTrades          = 37; //Long trades
+    int32  ProfitShorttrades   = 38; //Profitable short trades
+    int32  ProfitLongtrades    = 39; //Profitable long trades
+    int32  ProfitTradesAvgcon  = 40; //Average length of a profitable series of trades
+    int32  LossTradesAvgCon    = 41; //Average length of a losing series of trades
+}
