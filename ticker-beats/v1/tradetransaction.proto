@@ -75,6 +75,7 @@ message TradeTransaction {
   int64                updated           = 20;
   int64                deleted           = 21;
   int64                TimeGMTOffset     = 22;
+  int32                internal_id       = 23; // Internal ID
 }
 
 // TradeRequest: The Structure of a Trade Request 
