@@ -1,3 +1,5 @@
+## v0.20.16
+- feat: Return all Stop Loss or Take Profit changes
 ## v0.20.15
 - feat: feat: TradeTransaction add internal_id
 ## v0.20.14
