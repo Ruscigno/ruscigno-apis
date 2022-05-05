@@ -85,10 +85,11 @@ message TradeBeats {
   repeated Position     positions        = 3;
   repeated Order        orders           = 4;
   repeated TradeRequest trade_request    = 5;
+           string       group_id         = 6;
 }
 
 message TickerBeatsResponse {
-  repeated TradeBeats beats = 1;
+  repeated TradeBeats beats    = 1;
 }
 
 // *******************

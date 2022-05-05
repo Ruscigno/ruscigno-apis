@@ -1,5 +1,3 @@
-#!/bin/bash
-#env DST_DIR="../../ruscigno-gosdk/ticker-beats/v1" SRC_DIR="./v1" protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/*.proto --go-grpc_out=$DST_DIR
-export DST_DIR="../../ruscigno-gosdk/"
-export SRC_DIR="./v1"
-protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/*.proto --go-grpc_out=$DST_DIR
+.PHONY: build
+build:
+	~/projects/protoc-3.20.1-linux-x86_64/bin/protoc -I=./v1 --go_out=../../ruscigno-gosdk/ ./v1/*.proto --go-grpc_out=../../ruscigno-gosdk/

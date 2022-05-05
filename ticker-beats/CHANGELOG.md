@@ -1,3 +1,5 @@
+## v0.21
+- feat: add group_id to beats
 ## v0.20.16
 - feat: Return all Stop Loss or Take Profit changes
 ## v0.20.15
