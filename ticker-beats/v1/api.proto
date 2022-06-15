@@ -66,11 +66,12 @@ message TickerBeatsRequest {
 }
 
 message TickerBeatsConfirmationRequest {
-    int64 account_id    = 1;
-    int64 server_time   = 2;
-    int64 beats_id      = 3;
-    string group_id     = 4;
-    int32 trade_retcode = 5;
+    int64 account_id       = 1;
+    int64 server_time      = 2;
+    int64 beats_id         = 3;
+    string group_id        = 4;
+    int32 trade_retcode    = 5;
+    SignalType signal_type = 6;
 }
 
 message CreateTestingStatisticsRequest {
@@ -84,10 +85,11 @@ message CreateTestingStatisticsRequest {
 message TradeBeats {
            Signal       signal           = 1;
            int32        expiration_time  = 2;
-  repeated Position     positions        = 3;
-  repeated Order        orders           = 4;
-  repeated TradeRequest trade_request    = 5;
-           string       group_id         = 6;
+           string       group_id         = 3;
+  repeated Position     positions        = 4;
+  repeated Order        orders           = 5;
+  repeated Deal         deals            = 6;
+  repeated TradeRequest trade_request    = 7;
 }
 
 message TickerBeatsResponse {
@@ -103,7 +105,7 @@ service TickerBeatsService {
   rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
   rpc ConfirmBeatsTransaction (TickerBeatsConfirmationRequest) returns (google.protobuf.Empty);
 }
-
+ 
 // Service for TickerBeatsService Microservice
 service TransactionsService {
   // Creates a new account
