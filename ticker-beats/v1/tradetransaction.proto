@@ -91,7 +91,7 @@ message TradeRequest {
   double              stop_limit      = 9;  // Stop Limit level of the order
   double              stop_loss       = 10; // Stop Loss level of the order
   double              take_profit     = 11; // Take Profit level of the order
-  int64               deviation       = 12; // Maximal possible deviation from the requested price
+  int64               deviation       = 12; // The maximal price deviation, specified in points
   OrderType           order_type      = 13; // Order type
   OrderFillingType    type_filling    = 14; // Order execution type
   OrderTypeTime       type_time       = 15; // Order expiration type

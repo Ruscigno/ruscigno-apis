@@ -21,7 +21,7 @@ message Signal {
 	bool  Active               = 4;
 	int32 MaxDeposit           = 5;
 	int32 StopIfLessThan       = 6;
-	int64 MaxSpread            = 7;
+	int64 Deviation            = 7;
 	int32 MinutesToExpire      = 8;
 }
 
