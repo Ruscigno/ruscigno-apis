@@ -1,3 +1,6 @@
+## v0.24.0
+feat: AllItems tells if it contains all records
+
 ## v0.23.0
 feat: MaxSpread to Deviation
 ## v0.22.0

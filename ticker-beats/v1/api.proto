@@ -36,17 +36,22 @@ message CreateAccountRequest {
 }
 
 message CreateDealsRequest {
-    repeated Deal deals = 1;
+    repeated Deal  deals      = 1;
+             int64 account_id = 2;
+             bool  all_items  = 3;
 }
 
 message CreateOrdersRequest {
-    repeated Order orders = 1;
+    repeated Order orders     = 1;
+             int64 account_id = 2;
+             bool  all_items  = 3;
 }
 
 message CreatePositionsRequest {
-    repeated Position positions   = 1;
-             int64    account_id  = 2; //Used to close all open positions in the case there is no positions open
-             int64    TimeGMT     = 3; //Used to close all open positions in the case there is no positions open
+    repeated Position positions  = 1;
+             int64    account_id = 2; //Used to close all open positions in the case there is no positions open
+             int64    TimeGMT    = 3; //Used to close all open positions in the case there is no positions open
+             bool     all_items  = 4;
 }
 
 message CreateTradeTransactionRequest {
@@ -84,12 +89,7 @@ message CreateTestingStatisticsRequest {
 // *******************
 message TradeBeats {
            Signal       signal           = 1;
-           int32        expiration_time  = 2;
-           string       group_id         = 3;
-  repeated Position     positions        = 4;
-  repeated Order        orders           = 5;
-  repeated Deal         deals            = 6;
-  repeated TradeRequest trade_request    = 7;
+  repeated TradeRequest trade_request    = 2;
 }
 
 message TickerBeatsResponse {
