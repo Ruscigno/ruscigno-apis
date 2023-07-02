@@ -11,29 +11,29 @@ enum SignalType {
     SIGINAL_TYPE_POSITION      = 2; // Return all unsynced positions
     SIGINAL_TYPE_TRADE_REQUEST = 3; // Return all pending trades
     SIGINAL_TYPE_DEAL          = 4; // Return all unsynced deals
-	SIGINAL_TYPE_STOP_TAKE     = 5; // Return all Stop Loss or Take Profit changes
+    SIGINAL_TYPE_STOP_TAKE     = 5; // Return all Stop Loss or Take Profit changes
 }
 
 message Signal {
     int64 SignalId             = 1;
-	int64 SourceAccountId 	   = 2;
-	int64 DestinationAccountId = 3;
-	bool  Active               = 4;
-	int32 MaxDeposit           = 5;
-	int32 StopIfLessThan       = 6;
-	int64 Deviation            = 7;
-	int32 MinutesToExpire      = 8;
+    int64 SourceAccountId      = 2;
+    int64 DestinationAccountId = 3;
+    bool  Active               = 4;
+    int32 MaxDeposit           = 5;
+    int32 StopIfLessThan       = 6;
+    int64 Deviation            = 7;
+    int32 MinutesToExpire      = 8;
 }
 
 message SignalResult {
     int64 SignalResultId       = 1;
-	int64 SourceAccountId      = 2;
-	int64 DestinationAccountId = 3;
-	int64 SourceBeatsId        = 4;
-	int64 DestinationBeatsId   = 5;
-	int64 ExternalId           = 6;
-	int64 SentTime             = 7;
-	int64 ConfirmationTime     = 8;
-	int64 Created              = 9;
-	int64 Updated              = 10;
+    int64 SourceAccountId      = 2;
+    int64 DestinationAccountId = 3;
+    int64 SourceBeatsId        = 4;
+    int64 DestinationBeatsId   = 5;
+    int64 ExternalId           = 6;
+    int64 SentTime             = 7;
+    int64 ConfirmationTime     = 8;
+    int64 Created              = 9;
+    int64 Updated              = 10;
 }
