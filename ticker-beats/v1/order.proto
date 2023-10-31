@@ -88,4 +88,6 @@ message Order {
     int64            position_by_id   = 27;
     bool             direction        = 28;
     int64            TimeGMTOffset    = 29;
+    string           providerid       = 30;
+    string           internalid       = 31;
 }
