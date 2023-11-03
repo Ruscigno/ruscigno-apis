@@ -9,6 +9,8 @@ enum AccountTradeMode {
   ACCOUNT_TRADE_MODE_DEMO = 0; //Demo account
   ACCOUNT_TRADE_MODE_CONTEST = 1; //Contest account 
   ACCOUNT_TRADE_MODE_REAL = 2; //Real account
+  ACCOUNT_TRADE_MODE_INTERNAL = 3; //Demo account ran internally by our own system
+  ACCOUNT_TRADE_MODE_BINANCE = 4; //Binance account
 }
 
 // AccountStopoutMode: Mode for setting the minimal allowed margin
