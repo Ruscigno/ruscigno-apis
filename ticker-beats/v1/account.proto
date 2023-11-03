@@ -56,7 +56,7 @@ message Account {
   int64              TimeGMT                = 28;
   int64              LocalTimeGMTOffset     = 29;
   int64              ServerTimeGMTOffset    = 30;
-  string             account_type           = 31;
+  string             testing_type           = 31;
   string             description            = 32;
   string             command                = 33;
   int64              info_id                = 34;
