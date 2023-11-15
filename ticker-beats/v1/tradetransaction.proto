@@ -21,6 +21,18 @@ option go_package = "ticker-beats/v1";
 import "deal.proto";
 import "order.proto";
 
+enum TradeRequestType {
+  _UNDEFINED_00 = 0;  //Should not be used
+  MARKET_ORDER = 1; // Market order
+  PENDING_ORDER = 2; // Pending order
+  _UNDEFINED_01 = 3;  //Should not be used
+  SLTP_ORDER = 4; // Stop Loss or Take Profit order
+  _UNDEFINED_05 = 5;  //Should not be used
+  _UNDEFINED_06 = 6;  //Should not be used
+  _UNDEFINED_07 = 7;  //Should not be used
+  PENDING_SLTP_ORDER = 8; // Pending order with Stop Loss and Take Profit
+}
+
 // TradeRequestActions: Interaction between the client terminal and a trade server for executing the order placing operation is performed by using trade requests
 enum TradeRequestActions {
     UNDEFINED_00_ACTION_DEAL = 0;  //Should not be used
