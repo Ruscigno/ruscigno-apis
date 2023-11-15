@@ -23,14 +23,22 @@ import "order.proto";
 
 enum TradeRequestType {
   _UNDEFINED_00 = 0;  //Should not be used
-  MARKET_ORDER = 1; // Market order
-  PENDING_ORDER = 2; // Pending order
+  AS_ORIGIN_ORDER = 1; // Order type is the same as the origin order type
+  MARKET_ORDER = 2; // Market order
   _UNDEFINED_01 = 3;  //Should not be used
-  SLTP_ORDER = 4; // Stop Loss or Take Profit order
+  PENDING_ORDER = 4; // Pending order
   _UNDEFINED_05 = 5;  //Should not be used
   _UNDEFINED_06 = 6;  //Should not be used
   _UNDEFINED_07 = 7;  //Should not be used
-  PENDING_SLTP_ORDER = 8; // Pending order with Stop Loss and Take Profit
+  SLTP_ORDER = 8; // Stop Loss or Take Profit order
+  _UNDEFINED_09 = 9;  //Should not be used
+  _UNDEFINED_10 = 10;  //Should not be used
+  _UNDEFINED_11 = 11;  //Should not be used
+  _UNDEFINED_12 = 12;  //Should not be used
+  _UNDEFINED_13 = 13;  //Should not be used
+  _UNDEFINED_14 = 14;  //Should not be used
+  _UNDEFINED_15 = 15;  //Should not be used
+  PENDING_SLTP_ORDER = 16; // Pending order with Stop Loss and Take Profit
 }
 
 // TradeRequestActions: Interaction between the client terminal and a trade server for executing the order placing operation is performed by using trade requests
