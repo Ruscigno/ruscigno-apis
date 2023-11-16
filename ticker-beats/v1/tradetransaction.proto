@@ -21,7 +21,7 @@ option go_package = "ticker-beats/v1";
 import "deal.proto";
 import "order.proto";
 
-enum TradeRequestType {
+enum CopyTradeAction {
   _UNDEFINED_00 = 0;  //Should not be used
   AS_ORIGIN_ORDER = 1; // Order type is the same as the origin order type
   MARKET_ORDER = 2; // Market order
