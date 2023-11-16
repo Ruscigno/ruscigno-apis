@@ -22,38 +22,54 @@ import "deal.proto";
 import "order.proto";
 
 enum CopyTradeAction {
-  _UNDEFINED_00 = 0;  //Should not be used
-  AS_ORIGIN_ORDER = 1; // Order type is the same as the origin order type
-  MARKET_ORDER = 2; // Market order
-  _UNDEFINED_01 = 3;  //Should not be used
-  PENDING_ORDER = 4; // Pending order
-  _UNDEFINED_05 = 5;  //Should not be used
-  _UNDEFINED_06 = 6;  //Should not be used
-  _UNDEFINED_07 = 7;  //Should not be used
-  SLTP_ORDER = 8; // Stop Loss or Take Profit order
-  _UNDEFINED_09 = 9;  //Should not be used
-  _UNDEFINED_10 = 10;  //Should not be used
-  _UNDEFINED_11 = 11;  //Should not be used
-  _UNDEFINED_12 = 12;  //Should not be used
-  _UNDEFINED_13 = 13;  //Should not be used
-  _UNDEFINED_14 = 14;  //Should not be used
-  _UNDEFINED_15 = 15;  //Should not be used
-  PENDING_SLTP_ORDER = 16; // Pending order with Stop Loss and Take Profit
+  _UNDEFINED_00         = 0;  // Should not be used
+  AS_ORIGIN_ORDER       = 1;  // Order type is the same as the origin order type
+  MARKET_ORDER          = 2;  // Market order
+  _UNDEFINED_01         = 3;  // Should not be used
+  PENDING_ORDER         = 4;  // Pending order
+  _UNDEFINED_05         = 5;  // Should not be used
+  _UNDEFINED_06         = 6;  // Should not be used
+  _UNDEFINED_07         = 7;  // Should not be used
+  SLTP_ORDER            = 8;  // Stop Loss or Take Profit order
+  _UNDEFINED_09         = 9;  // Should not be used
+  _UNDEFINED_10         = 10; // Should not be used
+  _UNDEFINED_11         = 11; // Should not be used
+  _UNDEFINED_12         = 12; // Should not be used
+  _UNDEFINED_13         = 13; // Should not be used
+  _UNDEFINED_14         = 14; // Should not be used
+  _UNDEFINED_15         = 15; // Should not be used
+  PENDING_SLTP_ORDER    = 16; // Pending order with Stop Loss and Take Profit
+  _UNDEFINED_17         = 17; // Should not be used
+  _UNDEFINED_18         = 18; // Should not be used
+  _UNDEFINED_19         = 19; // Should not be used
+  _UNDEFINED_20         = 20; // Should not be used
+  _UNDEFINED_21         = 21; // Should not be used
+  _UNDEFINED_22         = 22; // Should not be used
+  _UNDEFINED_23         = 23; // Should not be used
+  _UNDEFINED_24         = 24; // Should not be used
+  _UNDEFINED_25         = 25; // Should not be used
+  _UNDEFINED_26         = 26; // Should not be used
+  _UNDEFINED_27         = 27; // Should not be used
+  _UNDEFINED_28         = 28; // Should not be used
+  _UNDEFINED_29         = 29; // Should not be used
+  _UNDEFINED_30         = 30; // Should not be used
+  _UNDEFINED_31         = 31; // Should not be used
+  CLOSE_POSITION_ORDER  = 32; // Close position order
 }
 
 // TradeRequestActions: Interaction between the client terminal and a trade server for executing the order placing operation is performed by using trade requests
 enum TradeRequestActions {
-    UNDEFINED_00_ACTION_DEAL = 0;  //Should not be used
-    TRADE_ACTION_DEAL        = 1;  //Place a trade order for an immediate execution with the specified parameters (market order)
-    UNDEFINED_01_ACTION_DEAL = 2;  //Should not be used
-    UNDEFINED_02_ACTION_DEAL = 3;  //Should not be used
-    UNDEFINED_03_ACTION_DEAL = 4;  //Should not be used
-    TRADE_ACTION_PENDING     = 5;  //Place a trade order for the execution under specified conditions (pending order)
-    TRADE_ACTION_SLTP        = 6;  //Modify Stop Loss and Take Profit values of an opened position
-    TRADE_ACTION_MODIFY      = 7;  //Modify the parameters of the order placed previously
-    TRADE_ACTION_REMOVE      = 8;  //Delete the pending order placed previously
-    UNDEFINED_04_ACTION_DEAL = 9;  //Should not be used
-    TRADE_ACTION_CLOSE_BY    = 10; //Close a position by an opposite one
+    UNDEFINED_00_ACTION_DEAL = 0;  // Should not be used
+    TRADE_ACTION_DEAL        = 1;  // Place a trade order for an immediate execution with the specified parameters (market order)
+    UNDEFINED_01_ACTION_DEAL = 2;  // Should not be used
+    UNDEFINED_02_ACTION_DEAL = 3;  // Should not be used
+    UNDEFINED_03_ACTION_DEAL = 4;  // Should not be used
+    TRADE_ACTION_PENDING     = 5;  // Place a trade order for the execution under specified conditions (pending order)
+    TRADE_ACTION_SLTP        = 6;  // Modify Stop Loss and Take Profit values of an opened position
+    TRADE_ACTION_MODIFY      = 7;  // Modify the parameters of the order placed previously
+    TRADE_ACTION_REMOVE      = 8;  // Delete the pending order placed previously
+    UNDEFINED_04_ACTION_DEAL = 9;  // Should not be used
+    TRADE_ACTION_CLOSE_BY    = 10; // Close a position by an opposite one
 }
 
 // When performing some definite actions on a trade account, its state changes.
@@ -123,7 +139,9 @@ message TradeRequest {
   int64               updated         = 21;
   int64               deleted         = 22;
   DealEntry           entry           = 23; // DealEntry: Deal entry - entry in, entry out, reverse
-  int64               TimeGMTOffset   = 24;
+  int64               TimeGMTOffset   = 24; // TimeGMTOffset: Time GMT Offset
+  CopyTradeAction     CopyTradeAction = 25; // CopyTradeAction: Copy trade action
+	int64               SignalID        = 26; // Signal ID
 }
 
 // TradeResult: The Structure of a Trade Result 
