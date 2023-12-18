@@ -34,6 +34,20 @@ enum DealEntry {
     DEAL_ENTRY_OUT_BY = 3; //Close a position by an opposite one
 }
 
+enum DealReason {
+    DEAL_REASON_CLIENT   = 0; //The deal was executed as a result of activation of an order placed from a desktop terminal
+    DEAL_REASON_MOBILE   = 1; //The deal was executed as a result of activation of an order placed from a mobile application
+    DEAL_REASON_WEB      = 2; //The deal was executed as a result of activation of an order placed from the web platform
+    DEAL_REASON_EXPERT   = 3; //The deal was executed as a result of activation of an order placed from an MQL5 program, i.e. an Expert Advisor or a script
+    DEAL_REASON_SL       = 4; //The deal was executed as a result of Stop Loss activation
+    DEAL_REASON_TP       = 5; //The deal was executed as a result of Take Profit activation
+    DEAL_REASON_SO       = 6; //The deal was executed as a result of the Stop Out event
+    DEAL_REASON_ROLLOVER = 7; //The deal was executed due to a rollover
+    DEAL_REASON_VMARGIN  = 8; //The deal was executed after charging the variation margin
+    DEAL_REASON_SPLIT    = 9; //The deal was executed after the split (price reduction) of an instrument, which had an open position during split announcement
+
+}
+
 // Deal: A deal is the reflection of the fact of a trade operation execution based on an order that contains a trade request
 message Deal { 
     int64     deal_id       = 1;
