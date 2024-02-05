@@ -103,6 +103,7 @@ message TickerBeatsResponse {
 // Service for TickerBeatsService Microservice
 service TickerBeatsService {
   rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
+  rpc GetTickerBeatsNotification (TickerBeatsRequest) returns (TickerBeatsResponse);
   rpc ConfirmBeatsTransaction (TickerBeatsConfirmationRequest) returns (google.protobuf.Empty);
 }
  
