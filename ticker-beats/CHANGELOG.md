@@ -1,3 +1,6 @@
+## v0.31.0
+feat: add NotificationAccount to the model
+
 ## v0.30.9
 feat: add DealReason to the model
 

@@ -62,4 +62,5 @@ message Account {
   string             description            = 32;
   string             command                = 33;
   int64              info_id                = 34;
+  bool               notification_account   = 35;
 }
