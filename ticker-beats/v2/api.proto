@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package tickerbeats.v2;
+
+option go_package = "ticker-beats/v2";
+
+import "google/protobuf/empty.proto";
+import "account.proto";
+import "order.proto";
+import "deal.proto";
+import "position.proto";
+import "tradetransaction.proto";
+import "signal.proto";
+import "testingstatistics.proto";
+
+
+message PagedRequestOptions {
+  // cursor can be passed to retrieve the next page of results keyed by the cursor
+  int64  cursor = 1;
+  // page_size specifies the number of items to return in the next page
+  int64 page_size = 2;
+}
+
+message PagedResponseMetadata {
+  // A cursor that can be provided to retrieve the next page of results
+  int64  next_cursor = 1;
+  // Whether or not more results exist
+  bool has_more = 2;
+}
+
+// *******************
+// Requests
+// *******************
+message CreateAccountRequest {
+    Account account = 1;
+}
+
+message CreateDealsRequest {
+    repeated Deal  deals      = 1;
+             int64 account_id = 2;
+             bool  all_items  = 3;
+}
+
+message CreateOrdersRequest {
+    repeated Order orders     = 1;
+             int64 account_id = 2;
+             bool  all_items  = 3;
+}
+
+message CreatePositionsRequest {
+    repeated Position positions  = 1;
+             int64    account_id = 2; //Used to close all open positions in the case there is no positions open
+             int64    TimeGMT    = 3; //Used to close all open positions in the case there is no positions open
+             bool     all_items  = 4;
+}
+
+message CreateTradeTransactionRequest {
+    int64            account_id        = 1;
+    int64            creation_order    = 2;
+    TradeTransaction trade_transaction = 4;
+    TradeRequest     trade_request     = 5;
+    TradeResult      trade_result      = 6;
+    int64            TimeGMT           = 7;
+}
+
+message TickerBeatsRequest {
+    int64      account_id    = 1;
+    int64      server_time   = 2;
+    SignalType signal_type   = 3;
+    int64      last_order_id = 4;
+}
+
+message TickerBeatsConfirmationRequest {
+    int64 account_id       = 1;
+    int64 server_time      = 2;
+    int64 beats_id         = 3;
+    string group_id        = 4;
+    int32 trade_retcode    = 5;
+    SignalType signal_type = 6;
+}
+
+message CreateTestingStatisticsRequest {
+  repeated TestingStatistics test = 1;
+}
+
+
+// *******************
+// Response
+// *******************
+message TradeBeats {
+           Signal       signal           = 1;
+  repeated TradeRequest trade_request    = 2;
+}
+
+message TickerBeatsResponse {
+  repeated TradeBeats beats    = 1;
+}
+
+// *******************
+// Services
+// *******************
+
+// Service for TickerBeatsService Microservice
+service TickerBeatsService {
+  rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
+  rpc GetTickerBeatsNotification (TickerBeatsRequest) returns (TickerBeatsResponse);
+  rpc ConfirmBeatsTransaction (TickerBeatsConfirmationRequest) returns (google.protobuf.Empty);
+}
+ 
+// Service for TickerBeatsService Microservice
+service TransactionsService {
+  // Creates a new account
+  rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
+  // Creates a new deal
+  rpc CreateDeals (CreateDealsRequest) returns (google.protobuf.Empty);
+  // Creates a new order
+  rpc CreateOrders (CreateOrdersRequest) returns (google.protobuf.Empty);
+  // Creates a new position
+  rpc CreatePositions (CreatePositionsRequest) returns (google.protobuf.Empty);
+  // Creates a trade transation
+  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
+}
+
+// Service for TestingStatistics Microservice
+service TestingStatisticsService {
+  rpc Create (CreateTestingStatisticsRequest) returns (google.protobuf.Empty);
+}

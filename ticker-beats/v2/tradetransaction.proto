@@ -1,0 +1,120 @@
+// Copyright 2021 Sander Ruscigno
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package tickerbeats.v2;
+
+option go_package = "ticker-beats/v2";
+
+import "deal.proto";
+import "order.proto";
+
+
+// TradeRequestActions: Interaction between the client terminal and a trade server for executing the order placing operation is performed by using trade requests
+enum TradeRequestActions {
+    TRADE_ACTION_DEAL        = 0;  // Place a trade order for an immediate execution with the specified parameters (market order)
+    TRADE_ACTION_PENDING     = 1;  // Place a trade order for the execution under specified conditions (pending order)
+    TRADE_ACTION_SLTP        = 2;  // Modify Stop Loss and Take Profit values of an opened position
+    TRADE_ACTION_MODIFY      = 3;  // Modify the parameters of the order placed previously
+    TRADE_ACTION_REMOVE      = 4;  // Delete the pending order placed previously
+    TRADE_ACTION_CLOSE_BY    = 5; // Close a position by an opposite one
+}
+
+// When performing some definite actions on a trade account, its state changes.
+enum TradeTransactionType {
+    TRADE_TRANSACTION_ORDER_ADD      = 0;  // Adding a new open order.
+    TRADE_TRANSACTION_ORDER_UPDATE   = 1;  // Updating an open order. The updates include not only evident changes from the client terminal or a trade server sides but also changes of an order state when setting it (for example, transition from ORDER_STATE_STARTED to ORDER_STATE_PLACED or from ORDER_STATE_PLACED to ORDER_STATE_PARTIAL, etc.).
+    TRADE_TRANSACTION_ORDER_DELETE   = 2;  // Removing an order from the list of the open ones. An order can be deleted from the open ones as a result of setting an appropriate request or execution (filling) and moving to the history.
+    TRADE_TRANSACTION_HISTORY_ADD    = 3;  // Adding an order to the history as a result of execution or cancellation.
+    TRADE_TRANSACTION_HISTORY_UPDATE = 4;  // Changing an order located in the orders history. This type is provided for enhancing functionality on a trade server side.
+    TRADE_TRANSACTION_HISTORY_DELETE = 5;  // Deleting an order from the orders history. This type is provided for enhancing functionality on a trade server side.
+    TRADE_TRANSACTION_DEAL_ADD       = 6;  // Adding a deal to the history. The action is performed as a result of an order execution or performing operations with an account balance.
+    TRADE_TRANSACTION_DEAL_UPDATE    = 7;  // Updating a deal in the history. There may be cases when a previously executed deal is changed on a server. For example, a deal has been changed in an external trading system (exchange) where it was previously transferred by a broker.
+    TRADE_TRANSACTION_DEAL_DELETE    = 8;  // Deleting a deal from the history. There may be cases when a previously executed deal is deleted from a server. For example, a deal has been deleted in an external trading system (exchange) where it was previously transferred by a broker.
+    TRADE_TRANSACTION_POSITION       = 9;  // Changing a position not related to a deal execution. This type of transaction shows that a position has been changed on a trade server side. Position volume, open price, Stop Loss and Take Profit levels can be changed. Data on changes are submitted in MqlTradeTransaction structure via OnTradeTransaction handler. Position change (adding, changing or closing), as a result of a deal execution, does not lead to the occurrence of TRADE_TRANSACTION_POSITION transaction.
+    TRADE_TRANSACTION_REQUEST        = 10; // Notification of the fact that a trade request has been processed by a server and processing result has been received. Only type field (trade transaction type) must be analyzed for such transactions in MqlTradeTransaction structure. The second and third parameters of OnTradeTransaction (request and result) must be analyzed for additional data.    
+}
+
+// TradeTransaction: Structure of a Trade Transaction
+message TradeTransaction {
+  int64                account_id        = 1;  // Account ID
+  int64                order_id          = 2;  // Order ticket
+  int32                internal_id       = 3;  // Internal ID
+  int64                creation_order    = 4;  // Creation order
+  int64                deal_id           = 5;  // Deal ticket
+  string               symbol            = 6;  // Trade symbol name
+  TradeTransactionType trade_type        = 7;  // Trade transaction type
+  OrderType            order_type        = 8;  // Order type
+  OrderState           order_state       = 9;  // Order state
+  DealType             deal_type         = 10; // Deal type
+  OrderTypeTime        time_type         = 11; // Order type by action period
+  int64                time_expiration   = 12; // Order expiration time
+  double               price             = 13; // Price
+  double               price_trigger     = 14; // Stop limit order activation price
+  double               price_stop_loss   = 15; // Stop Loss level
+  double               price_take_profit = 16; // Take Profit level
+  double               volume            = 17; // Volume in lots
+  int64                position_id       = 18; // Position ticket
+  int64                position_by       = 19; // Ticket of an opposite position
+  int64                time_gmt_offset   = 20;
+}
+
+// TradeRequest: The Structure of a Trade Request 
+message TradeRequest {
+  int64               account_id      = 1;  // Account ID
+  int64               order_id        = 2;  // Order ticket
+  int64               creation_order  = 3;  // Creation order
+  TradeRequestActions action          = 4;  // Trade operation type
+  int64               magic           = 5;  // Expert Advisor ID (magic number)
+  string              symbol          = 6;  // Trade symbol
+  double              volume          = 7;  // Requested volume for a deal in lots
+  double              price           = 8;  // Price
+  double              stop_limit      = 9;  // Stop Limit level of the order
+  double              stop_loss       = 10; // Stop Loss level of the order
+  double              take_profit     = 11; // Take Profit level of the order
+  int64               deviation       = 12; // The maximal price deviation, specified in points
+  OrderType           order_type      = 13; // Order type
+  OrderFillingType    type_filling    = 14; // Order execution type
+  OrderTypeTime       type_time       = 15; // Order expiration type
+  int64               time_expiration = 16; // Order expiration time (for the orders of ORDER_TIME_SPECIFIED type)
+  string              comment         = 17; // Order comment
+  int64               position_id     = 18; // TradeTransaction ticket
+  int64               position_by     = 19; // The ticket of an opposite tradetransaction
+  DealEntry           entry           = 20; // DealEntry: Deal entry - entry in, entry out, reverse
+  int64               time_gmt_offset = 21; // TimeGMTOffset: Time GMT Offset
+  
+  int64               created         = 97;
+  int64               updated         = 98;
+  int64               deleted         = 99;
+}
+
+// TradeResult: The Structure of a Trade Result 
+message TradeResult {
+  int64  account_id       = 1;  // Account ID
+  int64  order_id         = 2;  // Order ticket, if it is placed
+  int64  creation_order   = 3;  // Creation order
+  uint32 retcode          = 4;  // Operation return code
+  int64  deal_id          = 5;  // Deal ticket, if it is performed
+  double volume           = 6;  // Deal volume, confirmed by broker
+  double price            = 7;  // Deal price, confirmed by broker
+  double bid              = 8;  // Current Bid price
+  double ask              = 9;  // Current Ask price
+  string comment          = 10; // Broker comment to operation (by default it is filled by description of trade server return code)
+  uint32 request_id       = 11; // Request ID set by the terminal during the dispatch
+  uint32 retcode_external = 12; // Return code of an external trading system
+  int64  created          = 97;
+  int64  updated          = 98;
+  int64  deleted          = 99;
+}
