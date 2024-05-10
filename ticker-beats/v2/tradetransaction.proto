@@ -102,19 +102,19 @@ message TradeRequest {
 
 // TradeResult: The Structure of a Trade Result 
 message TradeResult {
-  int64  account_id       = 1;  // Account ID
-  int64  order_id         = 2;  // Order ticket, if it is placed
-  int64  creation_order   = 3;  // Creation order
-  uint32 retcode          = 4;  // Operation return code
-  int64  deal_id          = 5;  // Deal ticket, if it is performed
-  double volume           = 6;  // Deal volume, confirmed by broker
-  double price            = 7;  // Deal price, confirmed by broker
-  double bid              = 8;  // Current Bid price
-  double ask              = 9;  // Current Ask price
-  string comment          = 10; // Broker comment to operation (by default it is filled by description of trade server return code)
-  uint32 request_id       = 11; // Request ID set by the terminal during the dispatch
-  uint32 retcode_external = 12; // Return code of an external trading system
-  int64  created          = 97;
-  int64  updated          = 98;
-  int64  deleted          = 99;
+  int64  account_id        = 1;  // Account ID
+  int64  order_id          = 2;  // Order ticket, if it is placed
+  int64  creation_order    = 3;  // Creation order
+  uint32 ret_code          = 4;  // Operation return code
+  int64  deal_id           = 5;  // Deal ticket, if it is performed
+  double volume            = 6;  // Deal volume, confirmed by broker
+  double price             = 7;  // Deal price, confirmed by broker
+  double bid               = 8;  // Current Bid price
+  double ask               = 9;  // Current Ask price
+  string comment           = 10; // Broker comment to operation (by default it is filled by description of trade server return code)
+  uint32 request_id        = 11; // Request ID set by the terminal during the dispatch
+  uint32 ret_code_external = 12; // Return code of an external trading system
+  int64  created           = 97;
+  int64  updated           = 98;
+  int64  deleted           = 99;
 }

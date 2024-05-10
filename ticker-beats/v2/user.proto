@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package tickerbeats.v2;
+
+option go_package = "ticker-beats/v2";
+
+// UserStatus: The status of the user
+enum UserStatus {
+    USER_STATUS_ACTIVE   = 0; // The user is active
+    USER_STATUS_INACTIVE = 1; // The user is inactive
+}
+
+// User: The user
+message User {
+    string     user_id  = 1; // The user's ID
+    string     name     = 2; // The user's name
+    UserStatus status   = 3; // The user's status
+    string     email    = 4; // The user's email
+    string     password = 5; // The user's password
+
+    int64      created  = 97;
+    int64      updated  = 98;
+    int64      deleted  = 99;
+}

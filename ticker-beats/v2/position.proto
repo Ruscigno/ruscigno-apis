@@ -18,8 +18,8 @@ enum PositionReason {
 }
 // Position: Execution of trade operations results in the opening of a position
 message Position {
-    int64          position_id     = 1;
-    int64          account_id      = 2;
+    int64          account_id      = 1;
+    int64          position_id     = 2;
     int64          ticket          = 3;
     string         symbol          = 4;
     int64          position_time   = 5;

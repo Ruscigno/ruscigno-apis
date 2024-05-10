@@ -10,8 +10,6 @@ import "order.proto";
 import "deal.proto";
 import "position.proto";
 import "tradetransaction.proto";
-import "signal.proto";
-import "testingstatistics.proto";
 
 
 message PagedRequestOptions {
@@ -31,97 +29,80 @@ message PagedResponseMetadata {
 // *******************
 // Requests
 // *******************
-message CreateAccountRequest {
+message AccountRequest {
     Account account = 1;
 }
 
-message CreateDealsRequest {
-    repeated Deal  deals      = 1;
-             int64 account_id = 2;
-             bool  all_items  = 3;
+message OrderRequest {
+  TradeRequest trade_request = 1;
 }
 
-message CreateOrdersRequest {
-    repeated Order orders     = 1;
-             int64 account_id = 2;
-             bool  all_items  = 3;
+message DealRequest {
+  Deal deal = 1;
 }
 
-message CreatePositionsRequest {
-    repeated Position positions  = 1;
-             int64    account_id = 2; //Used to close all open positions in the case there is no positions open
-             int64    TimeGMT    = 3; //Used to close all open positions in the case there is no positions open
-             bool     all_items  = 4;
-}
-
-message CreateTradeTransactionRequest {
-    int64            account_id        = 1;
-    int64            creation_order    = 2;
-    TradeTransaction trade_transaction = 4;
-    TradeRequest     trade_request     = 5;
-    TradeResult      trade_result      = 6;
-    int64            TimeGMT           = 7;
-}
-
-message TickerBeatsRequest {
-    int64      account_id    = 1;
-    int64      server_time   = 2;
-    SignalType signal_type   = 3;
-    int64      last_order_id = 4;
-}
-
-message TickerBeatsConfirmationRequest {
-    int64 account_id       = 1;
-    int64 server_time      = 2;
-    int64 beats_id         = 3;
-    string group_id        = 4;
-    int32 trade_retcode    = 5;
-    SignalType signal_type = 6;
-}
-
-message CreateTestingStatisticsRequest {
-  repeated TestingStatistics test = 1;
-}
-
-
-// *******************
-// Response
-// *******************
-message TradeBeats {
-           Signal       signal           = 1;
-  repeated TradeRequest trade_request    = 2;
-}
-
-message TickerBeatsResponse {
-  repeated TradeBeats beats    = 1;
+message PositionRequest {
+  Position position = 1;
 }
 
 // *******************
 // Services
 // *******************
 
-// Service for TickerBeatsService Microservice
-service TickerBeatsService {
-  rpc GetTickerBeats (TickerBeatsRequest) returns (TickerBeatsResponse);
-  rpc GetTickerBeatsNotification (TickerBeatsRequest) returns (TickerBeatsResponse);
-  rpc ConfirmBeatsTransaction (TickerBeatsConfirmationRequest) returns (google.protobuf.Empty);
+// AccountServiceClient is the client API for AccountService service.
+service AccountServiceClient {
+  // Creates a new account
+  rpc CreateAccount (AccountRequest) returns (google.protobuf.Empty);
+  // Gets an account by id
+  rpc GetAccountById (AccountRequest) returns (Account);
 }
  
-// Service for TickerBeatsService Microservice
-service TransactionsService {
-  // Creates a new account
-  rpc CreateAccount (CreateAccountRequest) returns (google.protobuf.Empty);
-  // Creates a new deal
-  rpc CreateDeals (CreateDealsRequest) returns (google.protobuf.Empty);
-  // Creates a new order
-  rpc CreateOrders (CreateOrdersRequest) returns (google.protobuf.Empty);
-  // Creates a new position
-  rpc CreatePositions (CreatePositionsRequest) returns (google.protobuf.Empty);
-  // Creates a trade transation
-  rpc CreateTradeTransaction(CreateTradeTransactionRequest) returns (google.protobuf.Empty);
+// TradeServiceClient is the client API for TradeService service.
+service TradeServiceClient {
+  // Places a new order
+  rpc PlaceOrder (OrderRequest) returns (TradeResult);
+  // Modifies an existing order
+  rpc ModifyOrder (OrderRequest) returns (TradeResult);
+  // Cancels an existing order
+  rpc CancelOrder (OrderRequest) returns (TradeResult);
+  // Cancels all orders for an account
+  rpc CancelAllOrders (OrderRequest) returns (TradeResult);
 }
 
-// Service for TestingStatistics Microservice
-service TestingStatisticsService {
-  rpc Create (CreateTestingStatisticsRequest) returns (google.protobuf.Empty);
+// OrderServiceClient is the client API for OrderService service.
+service OrderServiceClient {
+  // Gets an order by id
+  rpc GetOrderById (OrderRequest) returns (Order);
+  // Gets all orders for an account
+  rpc GetOrdersByAccountId (OrderRequest) returns (stream Order);
+  // Gets all orders for an account
+  rpc GetOrdersBySymbol (OrderRequest) returns (stream Order);
+  // Gets all orders with a status
+  rpc GetOrdersByStatus (OrderRequest) returns (stream Order);
+}
+
+// DealServiceClient is the client API for DealService service.
+service DealServiceClient {
+  // Gets a deal by id
+  rpc GetDealById (DealRequest) returns (Deal);
+  // Gets all deals for an account
+  rpc GetAllDeals (DealRequest) returns (stream Deal);
+  // Gets deals by symbol for an account
+  rpc GetDealsBySymbol (DealRequest) returns (stream Deal);
+}
+
+// PositionServiceClient is the client API for PositionService service.
+service PositionServiceClient {
+  // Gets a position by id
+  rpc GetPositionById (PositionRequest) returns (Position);
+  // Gets all positions
+  rpc GetAllPositions (PositionRequest) returns (stream Position);
+  // Gets a position by symbol
+  rpc GetPositionsBySymbol (PositionRequest) returns (stream Position);
+  // Close a position
+  rpc ClosePosition (PositionRequest) returns (TradeResult);
+  // Close all positions
+  rpc CloseAllPosition (PositionRequest) returns (TradeResult);
+  // Changes the TP and SL for a position
+  rpc ModifyPosition (PositionRequest) returns (TradeResult);
 }
