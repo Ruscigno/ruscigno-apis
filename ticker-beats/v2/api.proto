@@ -1,30 +1,15 @@
 syntax = "proto3";
 
-package tickerbeats.v2;
+package api.v1;
 
-option go_package = "ticker-beats/v2";
+option go_package = "api/v1/tradingcontrol";
 
 import "google/protobuf/empty.proto";
-import "account.proto";
-import "order.proto";
-import "deal.proto";
-import "position.proto";
-import "tradetransaction.proto";
-
-
-message PagedRequestOptions {
-  // cursor can be passed to retrieve the next page of results keyed by the cursor
-  int64  cursor = 1;
-  // page_size specifies the number of items to return in the next page
-  int64 page_size = 2;
-}
-
-message PagedResponseMetadata {
-  // A cursor that can be provided to retrieve the next page of results
-  int64  next_cursor = 1;
-  // Whether or not more results exist
-  bool has_more = 2;
-}
+import "v1/account.proto";
+import "v1/order.proto";
+import "v1/deal.proto";
+import "v1/position.proto";
+import "v1/tradetransaction.proto";
 
 // *******************
 // Requests

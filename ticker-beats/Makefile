@@ -7,5 +7,5 @@ build-python:
 	protoc -I=./v1 --python_out=../../ticker-beats-exchange-integration/ruscigno-apis ./v1/*.proto
 
 .PHONY: build-v2
-build-v2:
-	protoc -I=./v2 --go_out=../../ruscigno-gosdk/ ./v2/*.proto --go-grpc_out=../../ruscigno-gosdk/
+build-v3:
+	protoc -I=./v2 --go_out=/home/sander/projects/TradingControl/ ./v2/*.proto

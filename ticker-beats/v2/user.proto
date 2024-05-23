@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package tickerbeats.v2;
 
-option go_package = "ticker-beats/v2";
+option go_package = "v1/tradingcontrol";
 
 // UserStatus: The status of the user
 enum UserStatus {
