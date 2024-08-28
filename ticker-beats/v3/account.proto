@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package tickerbeats.v3;
+
+option go_package = "ticker-beats/v3";
+
+// AccountTradeMode represents the modes an account could have
+enum AccountTradeMode {
+  ACCOUNT_TRADE_MODE_DEMO = 0; //Demo account
+  ACCOUNT_TRADE_MODE_CONTEST = 1; //Contest account 
+  ACCOUNT_TRADE_MODE_REAL = 2; //Real account
+  ACCOUNT_TRADE_MODE_INTERNAL = 3; //Demo account ran internally by our own system
+  ACCOUNT_TRADE_MODE_BINANCE = 4; //Binance account
+}
+
+// AccountStopoutMode: Mode for setting the minimal allowed margin
+enum AccountStopoutMode {
+  ACCOUNT_STOPOUT_MODE_PERCENT = 0; //Account stop out mode in percents
+  ACCOUNT_STOPOUT_MODE_MONEY = 1; //Account stop out mode in money
+}
+
+// AccountStopoutMode: Margin calculation mode
+enum AccountMarginMode {
+  ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0; //Used for the OTC markets to interpret positions in the "netting" mode (only one position can exist for one symbol). 
+  ACCOUNT_MARGIN_MODE_EXCHANGE = 1; //Used for the exchange markets.
+  ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2; //Used for the exchange markets where individual positions are possible (hedging, multiple positions can exist for one symbol).
+}
+
+// Account: Account Properties
+message Account {
+  int64              account_id             = 1;
+  AccountTradeMode   trade_mode             = 2;
+  int64              leverage               = 3;
+  AccountMarginMode  margin_mode            = 4;
+  AccountStopoutMode stopout_mode           = 5;
+  bool               trade_allowed          = 6;
+  bool               trade_expert           = 7;
+  int64              limit_orders           = 8;
+  string             name                   = 9;
+  string             server                 = 10;
+  string             currency               = 11;
+  string             company                = 12;
+  double             balance                = 13;
+  double             credit                 = 14;
+  double             profit                 = 15;
+  double             equity                 = 16;
+  double             margin                 = 17;
+  double             free_margin            = 18;
+  double             margin_level           = 19;
+  double             margin_call            = 20;
+  double             margin_stopout         = 21;
+  int64              created                = 22;
+  int64              updated                = 23;
+  int64              deleted                = 24;
+  int64              TimeTradeServer        = 25;
+  int64              TimeCurrent            = 26;
+  int64              TimeLocal              = 27;
+  int64              TimeGMT                = 28;
+  int64              LocalTimeGMTOffset     = 29;
+  int64              ServerTimeGMTOffset    = 30;
+  string             testing_type           = 31;
+  string             description            = 32;
+  string             command                = 33;
+  int64              info_id                = 34;
+  bool               active                 = 35;
+  bool               notification_account   = 36;
+}
