@@ -1,3 +1,7 @@
+## v0.32
+### v3
+feat: update account.proto
+
 ## v0.31.2
 feat: add Active field to the model
 
