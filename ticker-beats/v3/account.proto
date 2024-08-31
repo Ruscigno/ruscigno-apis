@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package tickerbeats.v3;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "ticker-beats/v3";
 
 // AccountTradeMode represents the modes an account could have
@@ -34,27 +36,28 @@ enum AccountExchange {
 
 // Account: Account Properties
 message Account {
-  int64              account_id             = 1;
-  string             name                   = 2;
-  string             description            = 3; 
-  AccountTradeMode   trade_mode             = 4;
-  int64              leverage               = 5;
-  AccountMarginMode  margin_mode            = 6;
-  AccountStopoutMode stopout_mode           = 7;
-  bool               trade_allowed          = 8;
-  bool               trade_expert           = 9;
-  AccountExchange    exchange               = 10;  
-  string             server                 = 11;
-  string             currency               = 12;
-  string             company                = 13;
-  bool               active                 = 14;
-  int64              TimeTradeServer        = 15;
-  int64              TimeCurrent            = 16;
-  int64              TimeLocal              = 17;
-  int64              TimeGMT                = 18;
-  int64              LocalTimeGMTOffset     = 19;
-  int64              ServerTimeGMTOffset    = 20;  
-  int64              created                = 21;
-  int64              updated                = 22;
-  int64              deleted                = 23;
+  int64                     account_id              = 1;
+  string                    exchage_account_id      = 2;
+  string                    name                    = 3; 
+  string                    description             = 4;
+  AccountTradeMode          trade_mode              = 5;
+  int32                     leverage                = 6;
+  AccountMarginMode         margin_mode             = 7;
+  AccountStopoutMode        stopout_mode            = 8;
+  bool                      trade_allowed           = 9;
+  bool                      trade_expert            = 10;  
+  AccountExchange           exchange                = 11;
+  string                    server                  = 12;
+  string                    currency                = 13;
+  string                    company                 = 14;
+  bool                      active                  = 15;
+  int32                     time_tradeServer        = 16;
+  int32                     time_current            = 17;
+  int32                     time_local              = 18;
+  int32                     time_gmt                = 19;
+  int32                     local__time_gmt_off_set = 20;  
+  int32                     server_time_gmt_off_set = 21;
+  google.protobuf.Timestamp created_at              = 22;
+  google.protobuf.Timestamp updated_at              = 23;
+  google.protobuf.Timestamp deleted_at              = 24;
 }
