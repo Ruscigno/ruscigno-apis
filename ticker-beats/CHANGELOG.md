@@ -1,3 +1,7 @@
+## v0.32.2
+### v3
+feat: update account model
+
 ## v0.32.1
 ### v3
 feat: remove unused enum
