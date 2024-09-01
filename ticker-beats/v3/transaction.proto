@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package tickerbeats.v3;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "ticker-beats/v3";
+
+// TransactionType: Transaction type
+enum TransactionType {
+    TRANSACTION_TYPE_BUY                      = 0;  //Buy
+    TRANSACTION_TYPE_SELL                     = 1;  //Sell
+    TRANSACTION_TYPE_BALANCE                  = 2;  //Balance
+    TRANSACTION_TYPE_CREDIT                   = 3;  //Credit
+    TRANSACTION_TYPE_CHARGE                   = 4;  //Additional charge
+    TRANSACTION_TYPE_CORRECTION               = 5;  //Correction
+    TRANSACTION_TYPE_BONUS                    = 6;  //Bonus
+    TRANSACTION_TYPE_COMMISSION               = 7;  //Additional commission
+    TRANSACTION_TYPE_COMMISSION_DAILY         = 8;  //Daily commission
+    TRANSACTION_TYPE_COMMISSION_MONTHLY       = 9;  //Monthly commission
+    TRANSACTION_TYPE_COMMISSION_AGENT_DAILY   = 10; //Daily agent commission
+    TRANSACTION_TYPE_COMMISSION_AGENT_MONTHLY = 11; //Monthly agent commission
+    TRANSACTION_TYPE_INTEREST                 = 12; //Interest rate
+    TRANSACTION_TYPE_BUY_CANCELED             = 13; //Canceled buy transaction.
+    TRANSACTION_TYPE_SELL_CANCELED            = 14; //Canceled sell transaction.
+    TRANSACTION_DIVIDEND                      = 15; //Dividend operations
+    TRANSACTION_DIVIDEND_FRANKED              = 16; //Franked (non-taxable) dividend operations
+    TRANSACTION_TAX                           = 17; //Tax charges
+}
+
+// TransactionEntry: Transaction entry - entry in, entry out, reverse
+enum TransactionEntry {
+    TRANSACTION_ENTRY_IN     = 0; //Entry in
+    TRANSACTION_ENTRY_OUT    = 1; //Entry out
+    TRANSACTION_ENTRY_INOUT  = 2; //Reverse
+    TRANSACTION_ENTRY_OUT_BY = 3; //Close a position by an opposite one
+}
+
+enum TransactionReason {
+    TRANSACTION_REASON_CLIENT   = 0; //The transaction was executed as a result of activation of an order placed from a desktop terminal
+    TRANSACTION_REASON_MOBILE   = 1; //The transaction was executed as a result of activation of an order placed from a mobile application
+    TRANSACTION_REASON_WEB      = 2; //The transaction was executed as a result of activation of an order placed from the web platform
+    TRANSACTION_REASON_EXPERT   = 3; //The transaction was executed as a result of activation of an order placed from an MQL5 program, i.e. an Expert Advisor or a script
+    TRANSACTION_REASON_SL       = 4; //The transaction was executed as a result of Stop Loss activation
+    TRANSACTION_REASON_TP       = 5; //The transaction was executed as a result of Take Profit activation
+    TRANSACTION_REASON_SO       = 6; //The transaction was executed as a result of the Stop Out event
+    TRANSACTION_REASON_ROLLOVER = 7; //The transaction was executed due to a rollover
+    TRANSACTION_REASON_VMARGIN  = 8; //The transaction was executed after charging the variation margin
+    TRANSACTION_REASON_SPLIT    = 9; //The transaction was executed after the split (price reduction) of an instrument, which had an open position during split announcement
+
+}
+
+// Transaction: A transaction is the reflection of the fact of a trade operation execution based on an order that contains a trade request
+message Transaction { 
+    int64                     account_id       = 1;
+    int64                     transaction_id   = 2;
+    int64                     order_id         = 3;
+    int64                     position_id      = 4;
+    string                    external_id      = 5;
+    string                    symbol           = 6;
+    google.protobuf.Timestamp transaction_time = 7; 
+    TransactionType           transaction_type = 8;
+    TransactionEntry          entry            = 9;
+    double                    volume           = 10;
+    double                    price            = 11;
+    double                    commission       = 12;
+    double                    swap             = 13;
+    double                    profit           = 14;
+    string                    comment          = 15;
+    int64                     magic            = 16;
+    TransactionReason         reason           = 17;
+    google.protobuf.Timestamp created_at       = 18;
+    google.protobuf.Timestamp updated_at       = 19;
+    google.protobuf.Timestamp deleted_at       = 20;
+}

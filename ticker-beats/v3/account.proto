@@ -8,56 +8,56 @@ option go_package = "ticker-beats/v3";
 
 // AccountTradeMode represents the modes an account could have
 enum AccountTradeMode {
-  ACCOUNT_TRADE_MODE_DEMO = 0; //Demo account
-  ACCOUNT_TRADE_MODE_CONTEST = 1; //Contest account 
-  ACCOUNT_TRADE_MODE_REAL = 2; //Real account
+  ACCOUNT_TRADE_MODE_DEMO     = 0; //Demo account
+  ACCOUNT_TRADE_MODE_CONTEST  = 1; //Contest account 
+  ACCOUNT_TRADE_MODE_REAL     = 2; //Real account
   ACCOUNT_TRADE_MODE_INTERNAL = 3; //Demo account ran internally by our own system
 }
 
 // AccountStopoutMode: Mode for setting the minimal allowed margin
 enum AccountStopoutMode {
   ACCOUNT_STOPOUT_MODE_PERCENT = 0; //Account stop out mode in percents
-  ACCOUNT_STOPOUT_MODE_MONEY = 1; //Account stop out mode in money
+  ACCOUNT_STOPOUT_MODE_MONEY   = 1; //Account stop out mode in money
 }
 
 // AccountStopoutMode: Margin calculation mode
 enum AccountMarginMode {
   ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0; //Used for the OTC markets to interpret positions in the "netting" mode (only one position can exist for one symbol). 
-  ACCOUNT_MARGIN_MODE_EXCHANGE = 1; //Used for the exchange markets.
+  ACCOUNT_MARGIN_MODE_EXCHANGE       = 1; //Used for the exchange markets.
   ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2; //Used for the exchange markets where individual positions are possible (hedging, multiple positions can exist for one symbol).
 }
 
 // AccountExchange: Exchange account is associated with
 enum AccountExchange {
   ACCOUNT_EXCHANGE_BINANCE = 0;
-  ACCOUNT_EXCHANGE_DYDX = 1;
-  ACCOUNT_EXCHANGE_MEXC = 2;
+  ACCOUNT_EXCHANGE_DYDX    = 1;
+  ACCOUNT_EXCHANGE_MEXC    = 2;
 }
 
 // Account: Account Properties
 message Account {
-  int64                     account_id              = 1;
-  string                    exchage_account_id      = 2;
-  string                    name                    = 3; 
-  string                    description             = 4;
-  AccountTradeMode          trade_mode              = 5;
-  int32                     leverage                = 6;
-  AccountMarginMode         margin_mode             = 7;
-  AccountStopoutMode        stopout_mode            = 8;
-  bool                      trade_allowed           = 9;
-  bool                      trade_expert            = 10;  
-  AccountExchange           exchange                = 11;
-  string                    server                  = 12;
-  string                    currency                = 13;
-  string                    company                 = 14;
-  bool                      active                  = 15;
-  int32                     time_tradeServer        = 16;
-  int32                     time_current            = 17;
-  int32                     time_local              = 18;
-  int32                     time_gmt                = 19;
-  int32                     local__time_gmt_off_set = 20;  
-  int32                     server_time_gmt_off_set = 21;
-  google.protobuf.Timestamp created_at              = 22;
-  google.protobuf.Timestamp updated_at              = 23;
-  google.protobuf.Timestamp deleted_at              = 24;
+  int64                     account_id             = 1;
+  string                    exchage_account_id     = 2;
+  string                    name                   = 3; 
+  string                    description            = 4;
+  AccountTradeMode          trade_mode             = 5;
+  int32                     leverage               = 6;
+  AccountMarginMode         margin_mode            = 7;
+  AccountStopoutMode        stopout_mode           = 8;
+  bool                      trade_allowed          = 9;
+  bool                      trade_expert           = 10;  
+  AccountExchange           exchange               = 11;
+  string                    server                 = 12;
+  string                    currency               = 13;
+  string                    company                = 14;
+  bool                      active                 = 15;
+  int32                     time_tradeServer       = 16;
+  int32                     time_current           = 17;
+  int32                     time_local             = 18;
+  int32                     time_gmt               = 19;
+  int32                     local_time_gmt_offset  = 20;  
+  int32                     server_time_gmt_offset = 21;
+  google.protobuf.Timestamp created_at             = 22;
+  google.protobuf.Timestamp updated_at             = 23;
+  google.protobuf.Timestamp deleted_at             = 24;
 }

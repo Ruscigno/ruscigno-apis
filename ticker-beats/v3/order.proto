@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package tickerbeats.v3;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "ticker-beats/v3";
 
 // OrderType: Order type
@@ -34,7 +36,7 @@ enum OrderState {
 // OrderFillingType: Order filling type
 enum OrderFillingType {
     ORDER_FILLING_FOK    = 0; //This filling policy means that an order can be filled only in the specified amount.
-    ORDER_FILLING_IOC    = 1; //This mode means that a trader agrees to execute a deal with the volume maximally available in the market within that indicated in the order.
+    ORDER_FILLING_IOC    = 1; //This mode means that a trader agrees to execute a transaction with the volume maximally available in the market within that indicated in the order.
     ORDER_FILLING_RETURN = 2; //This policy is used only for market orders (ORDER_TYPE_BUY and ORDER_TYPE_SELL), limit and stop limit orders (ORDER_TYPE_BUY_LIMIT, ORDER_TYPE_SELL_LIMIT, ORDER_TYPE_BUY_STOP_LIMIT and ORDER_TYPE_SELL_STOP_LIMIT ) and only for the symbols with Market or Exchange execution.
 }
 
@@ -59,35 +61,33 @@ enum OrderReason {
 
 // Order represents an trade order
 message Order {
-    int64            order_id         = 1;
-    int64            account_id       = 2;
-    int64            ticket           = 3;
-    string           symbol           = 4;
-    int64            time_setup       = 5;
-    OrderType        order_type       = 6;
-    OrderState       state            = 7;
-    int64            time_expiration  = 8;
-    int64            time_done        = 9;
-    OrderFillingType type_filling     = 10;
-    OrderTypeTime    type_time        = 11;
-    int64            magic            = 12;
-    int64            position_id      = 13;
-    OrderReason      reason           = 14;
-    double           volume_initial   = 15;
-    double           volume_current   = 16;
-    double           price_open       = 17;
-    double           stop_loss        = 18;
-    double           take_profit      = 19;
-    double           price_current    = 20;
-    double           price_stop_limit = 21;
-    string           comment          = 22;
-    string           external_id      = 23;
-    int64            created          = 24;
-    int64            updated          = 25;
-    int64            deleted          = 26;
-    int64            position_by_id   = 27;
-    bool             direction        = 28;
-    int64            TimeGMTOffset    = 29;
-    string           provider_id      = 30;
-    string           internal_id      = 31;
+    int64                     account_id       = 1;
+    int64                     transaction_id   = 2;
+    int64                     order_id         = 3;
+    int64                     position_id      = 4;
+    string                    external_id      = 5;
+    string                    symbol           = 6;
+    google.protobuf.Timestamp time_setup       = 7;
+    OrderType                 order_type       = 8;
+    OrderState                state            = 9;
+    google.protobuf.Timestamp time_expiration  = 10;
+    google.protobuf.Timestamp time_done        = 11;
+    OrderFillingType          type_filling     = 12;
+    OrderTypeTime             type_time        = 13;
+    OrderReason               reason           = 14;
+    double                    volume_initial   = 15;
+    double                    volume_current   = 16;
+    double                    price_open       = 17;
+    double                    price_trigger    = 18; // Stop limit order activation price
+    double                    stop_loss        = 19;
+    double                    take_profit      = 20;
+    double                    price_current    = 21;
+    double                    price_stop_limit = 22;
+    int64                     magic            = 23;
+    string                    comment          = 24;
+    int64                     position_by_id   = 25;
+    google.protobuf.Timestamp created_at       = 26;
+    google.protobuf.Timestamp updated_at       = 27;
+    google.protobuf.Timestamp deleted_at       = 28;
+    
 }

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package tickerbeats.v3;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "ticker-beats/v3";
 
 // PositionType: Position Type
@@ -18,28 +20,26 @@ enum PositionReason {
 }
 // Position: Execution of trade operations results in the opening of a position
 message Position {
-    int64          position_id     = 1;
-    int64          account_id      = 2;
-    int64          ticket          = 3;
-    string         symbol          = 4;
-    int64          position_time   = 5;
-    PositionType   position_type   = 6;
-    double         volume          = 7;
-    double         price_open      = 8;
-    double         stop_loss       = 9;
-    double         take_profit     = 10;
-    double         price_current   = 11;
-    double         commission      = 12;
-    double         swap            = 13;
-    double         profit          = 14;
-    int64          identifier      = 15;
-    string         comment         = 16;
-    int64          created         = 17;
-    int64          updated         = 18;
-    int64          deleted         = 19;
-    int64          position_update = 20;
-    PositionReason reason          = 21;
-    string         external_id     = 22;
-    int64          magic           = 23;
-    int64          TimeGMTOffset   = 24;
+    int64                     account_id     = 1;
+    int64                     transaction_id = 2;
+    int64                     order_id       = 3;
+    int64                     position_id    = 4;
+    string                    external_id    = 5;
+    string                    symbol         = 6;
+    google.protobuf.Timestamp position_time  = 7;
+    PositionType              position_type  = 8;
+    double                    volume         = 9;
+    double                    price_open     = 10;
+    double                    stop_loss      = 11;
+    double                    take_profit    = 12;
+    double                    price_current  = 13;
+    double                    commission     = 14;
+    double                    swap           = 15;
+    double                    profit         = 16;
+    string                    comment        = 17;
+    PositionReason            reason         = 18;
+    int64                     magic          = 19;
+    google.protobuf.Timestamp created_at     = 20;
+    google.protobuf.Timestamp updated_at     = 21;
+    google.protobuf.Timestamp deleted_at     = 22;
 }
