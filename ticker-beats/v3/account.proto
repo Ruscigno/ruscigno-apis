@@ -57,7 +57,7 @@ message Account {
   int32                     time_gmt               = 19;
   int32                     local_time_gmt_offset  = 20;  
   int32                     server_time_gmt_offset = 21;
-  google.protobuf.Timestamp created_at             = 22;
-  google.protobuf.Timestamp updated_at             = 23;
-  google.protobuf.Timestamp deleted_at             = 24;
+  google.protobuf.Timestamp created_at             = 97; // Timestamp of creation
+  google.protobuf.Timestamp updated_at             = 98; // Timestamp of last update
+  google.protobuf.Timestamp deleted_at             = 99; // Timestamp of deletion
 }

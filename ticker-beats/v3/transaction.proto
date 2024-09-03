@@ -69,7 +69,7 @@ message Transaction {
     string                    comment          = 15;
     int64                     magic            = 16;
     TransactionReason         reason           = 17;
-    google.protobuf.Timestamp created_at       = 18;
-    google.protobuf.Timestamp updated_at       = 19;
-    google.protobuf.Timestamp deleted_at       = 20;
+    google.protobuf.Timestamp created_at       = 97; // Timestamp of creation
+    google.protobuf.Timestamp updated_at       = 98; // Timestamp of last update
+    google.protobuf.Timestamp deleted_at       = 99; // Timestamp of deletion
 }

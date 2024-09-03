@@ -12,12 +12,6 @@ enum PositionType {
     POSITION_TYPE_SELL = 1; //Sell
 }
 
-enum PositionReason {
-    POSITION_REASON_CLIENT = 0; //The position was opened as a result of activation of an order placed from a desktop terminal
-    POSITION_REASON_MOBILE = 1; //The position was opened as a result of activation of an order placed from a mobile application
-    POSITION_REASON_WEB    = 2; //The position was opened as a result of activation of an order placed from the web platform
-    POSITION_REASON_EXPERT = 3; //The position was opened as a result of activation of an order placed from an MQL5 program, i.e. an Expert Advisor or a script
-}
 // Position: Execution of trade operations results in the opening of a position
 message Position {
     int64                     account_id     = 1;
@@ -37,9 +31,8 @@ message Position {
     double                    swap           = 15;
     double                    profit         = 16;
     string                    comment        = 17;
-    PositionReason            reason         = 18;
-    int64                     magic          = 19;
-    google.protobuf.Timestamp created_at     = 20;
-    google.protobuf.Timestamp updated_at     = 21;
-    google.protobuf.Timestamp deleted_at     = 22;
+    int64                     magic          = 18;
+    google.protobuf.Timestamp created_at     = 97; // Timestamp of creation
+    google.protobuf.Timestamp updated_at     = 98; // Timestamp of last update
+    google.protobuf.Timestamp deleted_at     = 99; // Timestamp of deletion
 }

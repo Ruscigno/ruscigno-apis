@@ -48,17 +48,6 @@ enum OrderTypeTime {
     ORDER_TIME_SPECIFIED_DAY = 3; //The order will be effective till 23:59:59 of the specified day.
 }
 
-// OrderReason: The reason for order placing. An order can be placed by an MQL5 program, from a mobile application, as a result of StopOut, etc.
-enum OrderReason {
-    ORDER_REASON_CLIENT = 0; //The order was placed from a desktop terminal
-    ORDER_REASON_MOBILE = 1; //The order was placed from a mobile application
-    ORDER_REASON_WEB    = 2; //The order was placed from a web platform
-    ORDER_REASON_EXPERT = 3; //The order was placed from an MQL5-program, i.e. by an Expert Advisor or a script
-    ORDER_REASON_SL     = 4; //The order was placed as a result of Stop Loss activation
-    ORDER_REASON_TP     = 5; //The order was placed as a result of Take Profit activation
-    ORDER_REASON_SO     = 6; //The order was placed as a result of the Stop Out event
-}
-
 // Order represents an trade order
 message Order {
     int64                     account_id       = 1;
@@ -74,20 +63,19 @@ message Order {
     google.protobuf.Timestamp time_done        = 11;
     OrderFillingType          type_filling     = 12;
     OrderTypeTime             type_time        = 13;
-    OrderReason               reason           = 14;
-    double                    volume_initial   = 15;
-    double                    volume_current   = 16;
-    double                    price_open       = 17;
-    double                    price_trigger    = 18; // Stop limit order activation price
-    double                    stop_loss        = 19;
-    double                    take_profit      = 20;
-    double                    price_current    = 21;
-    double                    price_stop_limit = 22;
-    int64                     magic            = 23;
-    string                    comment          = 24;
-    int64                     position_by_id   = 25;
-    google.protobuf.Timestamp created_at       = 26;
-    google.protobuf.Timestamp updated_at       = 27;
-    google.protobuf.Timestamp deleted_at       = 28;
+    double                    volume_initial   = 14;
+    double                    volume_current   = 15;
+    double                    price_open       = 16;
+    double                    price_trigger    = 17; // Stop limit order activation price
+    double                    stop_loss        = 18;
+    double                    take_profit      = 19;
+    double                    price_current    = 20;
+    double                    price_stop_limit = 21;
+    int64                     magic            = 22;
+    string                    comment          = 23;
+    int64                     position_by_id   = 24;
+    google.protobuf.Timestamp created_at       = 97; // Timestamp of creation
+    google.protobuf.Timestamp updated_at       = 98; // Timestamp of last update
+    google.protobuf.Timestamp deleted_at       = 99; // Timestamp of deletion
     
 }

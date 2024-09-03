@@ -9,7 +9,7 @@ import "account.proto";
 import "order.proto";
 import "transaction.proto";
 import "position.proto";
-import "tradetransaction.proto";
+import "trade.proto";
 
 
 message PagedRequestOptions {
